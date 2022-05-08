@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTypeCateTable extends Migration
+class CreateProvinceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateTypeCateTable extends Migration
      */
     public function up()
     {
-        Schema::create('type_cate', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('province', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
         });
     }
 
@@ -26,6 +26,6 @@ class CreateTypeCateTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_cate');
+        Schema::dropIfExists('province');
     }
 }
