@@ -1,8 +1,14 @@
 @extends('admin.layout.master')
 @extends('admin.layout.header')
 @section('content')
-        <h1 class="mt-4">Thêm nhân viên</h1>
-
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <h4 class="page-title">Thêm nhân nhiên</h4>
+            </div>
+        </div>
+    </div>
+    <!-- end page title -->
         <div class="card mb-4">
             <div class="card-body" style="margin: 20px">
                 <form action="{{ route('postAdd-user') }}" method="POST" enctype="multipart/form-data">

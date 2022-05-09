@@ -48,4 +48,34 @@ class userController extends Controller
         }
         return redirect(route('list-user'));
     }
+    public function getEditUser($id){
+        $user = User::findOrfail($id);
+        return view('admin.user.edit-user',compact('user'));
+    }
+    public function postEditUser(Request $request, $id){
+        $user = User::find($id);
+        $user->full_name = $request->full_name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+      //  $user->user_name = $request->user_name;
+        $user->role_id = $request->role_id;
+        if ($request->change_pass == "on") {
+            $this->validate($request, [
+
+                "password" => "required",
+                "password2" => "required|same:password"
+            ]);
+            $user->password = bcrypt($request->password);
+        }
+        if ($user->save()) {
+            if ($request->hasFile('avatar')) {
+                $file = $request->avatar;
+                // $file_name=$file->getClientOriginalName();
+                $file->move('upload/avatar', $file->getClientOriginalName());
+                $user->avatar = "upload/avatar/" . $file->getClientOriginalName();
+                $user->save();
+            }
+        }
+        return redirect(route('list-user'));
+    }
 }

@@ -5,13 +5,6 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
-                <div class="page-title-right">
-                    <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Abstack</a></li>
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                        <li class="breadcrumb-item active">Datatable</li>
-                    </ol>
-                </div>
                 <h4 class="page-title">Danh sách nhân nhiên</h4>
             </div>
         </div>
@@ -49,7 +42,7 @@
                             </td>
                             <td style="text-align: center">
                                 <a class="btn btn-facebook waves-effect waves-light btn-xs"
-                                   href="#">
+                                   href="{{ route('edit-staff',$list->id) }}">
                                     <i class="typcn typcn-edit"></i> Sửa
                                 </a>
                                 <a class="btn btn-pinterest waves-effect waves-light btn-xs delete"

@@ -19,8 +19,14 @@ Route::get('/', function () {
 
 //Route::group(['prefix' => '/'],function (){
     Route::group(['prefix' => 'admin'],function (){
-        Route::get('/ds-nhanvien','userController@listUser')->name('list-user');
-        Route::get('/them-nhanvien','userController@getAddUser')->name('getAdd-user');
+        //Danh sách nhân viên
+        Route::get('/list-staff','userController@listUser')->name('list-user');
+        //Thêm mới nhân viên
+        Route::get('/add-staff','userController@getAddUser')->name('getAdd-user');
         Route::post('/post-Adduser','userController@postAddUser')->name('postAdd-user');
+        //Chỉnh sửa nhân viên
+        Route::get('/edit-staff={id}','userController@getEditUser')->name('edit-staff');
+        Route::post('/postEdit-staff={id}','userController@getEditUser')->name('postEdit-staff');
+        //Xóa nhân viên
     });
 //});

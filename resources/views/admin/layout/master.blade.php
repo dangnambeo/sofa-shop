@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>@yield('tittle')</title>
+    <title>SOFA-T</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Responsive bootstrap 4 admin template" name="description" />
     <meta content="Coderthemes" name="author" />
@@ -147,13 +147,12 @@
         <!-- LOGO -->
         <div class="logo-box">
             <a href="#" class="logo text-center">
-                    <span class="logo-lg">
-                        <img src="{{ asset('image/logo3.png') }}" alt="" height="60">
-
-                    </span>
+                <span class="logo-lg">
+                    <img src="{{ asset('image/logo3.png') }}" alt="" height="60">
+                </span>
                 <span class="logo-sm">
-                        <span class="logo-sm-text-dark">SOFA-T</span>
-                    </span>
+                    <img src="{{ asset('image/logo3.png') }}" alt="" height="20">
+                </span>
             </a>
         </div>
 
@@ -199,7 +198,7 @@
                     </li>
                     <li>
                         <a href="{{ route('list-user') }}" class="waves-effect waves-light">
-                            <i class="  ion ion-md-cube"></i>
+                            <i class="fas fa-user-friends"></i>
                             <span> Quản Lý Nhân viên</span>
                         </a>
                     </li>
