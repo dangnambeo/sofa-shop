@@ -26,7 +26,7 @@
                         <th>Mã Người Dùng</th>
                         <th>Tên Đầy Đủ</th>
                         <th>Tên Đăng Nhập</th>
-                        <th>Ảnh Đại Diện</th>
+                        <th>Số điện thoại</th>
                         <th>Cấp Quản Lý</th>
                         <th style="text-align: center">
                             <a class="btn btn-primary waves-effect waves-light btn-xs"
@@ -40,28 +40,20 @@
                     <?php $i = 1; ?>
                     @foreach ($user as $list)
                         <tr>
-                            <td>{{ $i }}</td>
-                            <td>{{ $list->full_name }}</td>
-                            <td>{{ $list->user_name }}</td>
-                            <td>
-                                @if ($list->avatar == null)
-                                    <p style="color: red;font-weight: bold">Bạn chưa thêm ảnh đại diện</p>
-                                @else
-                                    <img class="rounded" alt="64x64" src="{{ asset($list->avatar) }}"
-                                         style="width: 100px; height: 66px;">
-
-                                @endif
-                            </td>
-                            <td>
+                            <td style="text-align: center">{{ $i }}</td>
+                            <td style="text-align: center">{{ $list->full_name }}</td>
+                            <td style="text-align: center">{{ $list->user_name }}</td>
+                            <td style="text-align: center">{{ $list->phone }}</td>
+                            <td style="text-align: center">
                                 {{ $list->role_id }}
                             </td>
                             <td style="text-align: center">
                                 <a class="btn btn-facebook waves-effect waves-light btn-xs"
-                                   href="{{ route('EditUser', $list->user_id) }}">
+                                   href="#">
                                     <i class="typcn typcn-edit"></i> Sửa
                                 </a>
                                 <a class="btn btn-pinterest waves-effect waves-light btn-xs delete"
-                                   href="{{ route('DelUser', $list->user_id) }}"
+                                   href="#"
                                    data-confirm="Bạn có muốn xóa người dùng">
                                     <i class=" typcn typcn-times"></i> Xóa
                                 </a>

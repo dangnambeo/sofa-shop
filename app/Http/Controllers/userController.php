@@ -19,15 +19,15 @@ class userController extends Controller
         $eror1 = [
             'full_name.required' => 'Bạn chưa nhập tên người dùng',
             'user_name.required' => 'Bạn chưa nhập tên đăng nhập',
-            'password.required' => 'Bạn chưa nhập mật khẩu',
-            'password2.required' => 'Bạn chưa nhập lại mật khẩu ',
-            'password2.same' => 'Mật Khẩu nhập lại không khớp ',
+            'pass.required' => 'Bạn chưa nhập mật khẩu',
+            'pass2.required' => 'Bạn chưa nhập lại mật khẩu ',
+            'pass2.same' => 'Mật Khẩu nhập lại không khớp ',
         ];
         $this->validate($request, [
             "full_name" => "required",
             "user_name" => "required",
-            "password" => "required",
-            "password2" => "required|same:password"
+            "pass" => "required",
+            "pass2" => "required|same:pass"
         ], $eror1);
         $user = new User;
         $user->full_name = $request->full_name;
@@ -35,7 +35,7 @@ class userController extends Controller
         $user->phone = $request->phone;
         $user->user_name = $request->user_name;
         $user->role_id = $request->role_id;
-        $user->password = bcrypt($request->password);
+        $user->pass = bcrypt($request->pass);
 
         if ($user->save()) {
             if ($request->hasFile('avatar')) {
