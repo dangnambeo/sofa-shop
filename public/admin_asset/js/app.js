@@ -1,7 +1,7 @@
 /*
-Template Name: Zircos - Responsive Bootstrap 4 Admin Dashboard
+Template Name: Abstack - Responsive Bootstrap 4 Admin Dashboard
 Author: CoderThemes
-Version: 3.0.0
+Version: 2.0.0
 Website: https://coderthemes.com/
 Contact: support@coderthemes.com
 File: Main Js File
@@ -29,9 +29,22 @@ File: Main Js File
         $.fn.slimScroll && $(".slimscroll").slimScroll({
             height: 'auto',
             position: 'right',
-            size: "5px",
+            size: "6px",
             touchScrollStep: 20,
             color: '#9ea5ab'
+        });
+    },
+
+    //initializing form validation
+    Components.prototype.initFormValidation = function () {
+        $(".needs-validation").on('submit', function (event) {
+            $(this).addClass('was-validated');
+            if ($(this)[0].checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            }
+            return true;
         });
     },
 
@@ -123,6 +136,7 @@ File: Main Js File
         this.initTooltipPlugin(),
         this.initPopoverPlugin(),
         this.initSlimScrollPlugin(),
+        this.initFormValidation(),
         this.initCustomModalPlugin(),
         this.initCounterUp(),
         this.initPeityCharts(),
@@ -133,115 +147,6 @@ File: Main Js File
 
 }(window.jQuery),
 
-function ($) {
-    "use strict";
-
-    var RightSidebar = function () { 
-        this.$bootstrapStylesheet = $('#bootstrap-stylesheet'),
-        this.$appStylesheet = $('#app-stylesheet'),
-        this.$originalBSStylesheet = $('#bootstrap-stylesheet').attr('href'),
-        this.$originalAppStylesheet = $('#app-stylesheet').attr('href');
-    };
-
-    RightSidebar.prototype.init = function() {
-        var self = this;
-
-        $("#light-mode-switch").on('change', function() {
-            if (this.checked) {
-                self.$bootstrapStylesheet.attr('href', self.$originalBSStylesheet);
-                self.$appStylesheet.attr('href', self.$originalAppStylesheet);
-
-                $("#dark-mode-switch").prop('checked', false);
-                $("#rtl-mode-switch").prop('checked', false);
-                $("#dark-rtl-mode-switch").prop('checked', false);
-            }
-        });
-
-        $("#dark-mode-switch").on('change', function() {
-            if (this.checked) {
-                self.$bootstrapStylesheet.attr('href', $(this).data('bsstyle'));
-                self.$appStylesheet.attr('href',  $(this).data('appstyle'));
-
-                $("#light-mode-switch").prop('checked', false);
-                $("#rtl-mode-switch").prop('checked', false);
-                $("#dark-rtl-mode-switch").prop('checked', false);
-            }
-        });
-
-        $("#rtl-mode-switch").on('change', function() {
-            if (this.checked) {
-                self.$bootstrapStylesheet.attr('href', self.$originalBSStylesheet);
-                self.$appStylesheet.attr('href',  $(this).data('appstyle'));
-
-                $("#light-mode-switch").prop('checked', false);
-                $("#dark-mode-switch").prop('checked', false);
-                $("#dark-rtl-mode-switch").prop('checked', false);
-            }
-        });
-
-        $("#dark-rtl-mode-switch").on('change', function() {
-            if (this.checked) {
-                self.$bootstrapStylesheet.attr('href', $(this).data('bsstyle'));
-                self.$appStylesheet.attr('href',  $(this).data('appstyle'));
-
-                $("#light-mode-switch").prop('checked', false);
-                $("#rtl-mode-switch").prop('checked', false);
-                $("#dark-mode-switch").prop('checked', false);
-            }
-        });
-    },
-
-    $.RightSidebar = new RightSidebar, $.RightSidebar.Constructor = RightSidebar
-
-}(window.jQuery),
-
-
-
-function($) {
-    "use strict";
-
-    /**
-    Portlet Widget
-    */
-    var Portlet = function() {
-        this.$body = $("body"),
-        this.$portletIdentifier = ".card",
-        this.$portletCloser = '.card a[data-toggle="remove"]',
-        this.$portletRefresher = '.card a[data-toggle="reload"]'
-    };
-
-    //on init
-    Portlet.prototype.init = function() {
-        // Panel closest
-        var $this = this;
-        $(document).on("click",this.$portletCloser, function (ev) {
-            ev.preventDefault();
-            var $portlet = $(this).closest($this.$portletIdentifier);
-                var $portlet_parent = $portlet.parent();
-            $portlet.remove();
-            if ($portlet_parent.children().length == 0) {
-                $portlet_parent.remove();
-            }
-        });
-
-        // Panel Reload
-        $(document).on("click",this.$portletRefresher, function (ev) {
-            ev.preventDefault();
-            var $portlet = $(this).closest($this.$portletIdentifier);
-            // This is just a simulation, nothing is going to be reloaded
-            $portlet.append('<div class="card-disabled"><div class="card-portlets-loader"><div class="double-bounce1"></div><div class="double-bounce2"></div></div></div>');
-            var $pd = $portlet.find('.card-disabled');
-            setTimeout(function () {
-                $pd.fadeOut('fast', function () {
-                    $pd.remove();
-                });
-            }, 500 + 300 * (Math.random() * 5));
-        });
-    },
-    //
-    $.Portlet = new Portlet, $.Portlet.Constructor = Portlet
-    
-}(window.jQuery),
 
 function ($) {
     'use strict';
@@ -259,7 +164,7 @@ function ($) {
         $('.slimscroll-menu').slimscroll({
             height: 'auto',
             position: 'right',
-            size: "5px",
+            size: "6px",
             color: '#9ea5ab',
             wheelStep: 5,
             touchScrollStep: 20
@@ -326,33 +231,10 @@ function ($) {
             }
         });
 
-        // activate the menu in horizontal menu based on url
-        $(".navigation-menu a").each(function () {
-            var pageUrl = window.location.href.split(/[?#]/)[0];
-            if (this.href == pageUrl) {  
-                $(this).addClass("active");
-                $(this).parent().addClass("active"); // add active to li of the current link
-                $(this).parent().parent().addClass("in");
-                $(this).parent().parent().prev().addClass("active"); // add active class to an anchor
-                $(this).parent().parent().parent().addClass("active");
-                $(this).parent().parent().parent().parent().addClass("in"); // add active to li of the current link
-                $(this).parent().parent().parent().parent().parent().addClass("active");
-            }
-        });
-
         // Topbar - main menu
         $('.navbar-toggle').on('click', function (event) {
             $(this).toggleClass('open');
             $('#navigation').slideToggle(400);
-        });
-
-        $('.navigation-menu>li').slice(-2).addClass('last-elements');
-
-        $('.navigation-menu li.has-submenu a[href="#"]').on('click', function (e) {
-            if ($(window).width() < 992) {
-                e.preventDefault();
-                $(this).parent('li').toggleClass('open').find('.submenu:first').toggleClass('open');
-            }
         });
 
     },
@@ -375,13 +257,8 @@ function ($) {
     App.prototype.init = function () {
         var $this = this;
         this.initLayout();
-        $.Portlet.init();
         this.initMenu();
         $.Components.init();
-
-        // right sidebar
-        $.RightSidebar.init();
- 
         // on window resize, make menu flipped automatically
         $this.$window.on('resize', function (e) {
             e.preventDefault();

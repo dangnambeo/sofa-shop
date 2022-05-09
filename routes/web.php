@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Route::group(['prefix' => '/'],function (){
+    Route::group(['prefix' => 'admin'],function (){
+        Route::get('/ds-nhanvien','userController@listUser')->name('list-user');
+        Route::get('/them-nhanvien','userController@getAddUser')->name('getAdd-user');
+        Route::post('/post-Adduser','userController@postAddUser')->name('postAdd-user');
+    });
+//});

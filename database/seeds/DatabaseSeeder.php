@@ -11,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+       DB::table('role')->insert([
+            ['name_role' => 'Admin'],
+            ['name_role' => 'Staff']
+        ]);
     }
 }
