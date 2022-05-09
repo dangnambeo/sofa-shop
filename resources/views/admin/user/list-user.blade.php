@@ -1,10 +1,26 @@
-@extends('admin.layout.header')
+
 @extends('admin.layout.master')
 @section('content')
-    <div class="card">
-        <div class="card-body">
-            <div class="table-responsive m-t-40">
-                <table id="example" class="table display table-bordered table-striped">
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Abstack</a></li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
+                        <li class="breadcrumb-item active">Datatable</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Danh sách nhân nhiên</h4>
+            </div>
+        </div>
+    </div>
+    <!-- end page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box table-responsive">
+                <table id="datatable" class="table table-bordered  dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                     <tr align="center">
                         <th>Mã Người Dùng</th>
@@ -37,12 +53,7 @@
                                 @endif
                             </td>
                             <td>
-                                @if ($list->level == 1)
-                                    {{ 'Bloger' }}
-
-                                @else
-                                    {{ 'Admin' }}
-                                @endif
+                                {{ $list->role_id }}
                             </td>
                             <td style="text-align: center">
                                 <a class="btn btn-facebook waves-effect waves-light btn-xs"
@@ -64,5 +75,5 @@
             </div>
         </div>
     </div>
-    <!-- end row -->
+
 @endsection

@@ -42,5 +42,5 @@
             </div>
         </div>
     </div>
-
+    <script src="{{ asset('admin_asset/libs/dropify/dropify.min.js') }}"></script>
 @endsection

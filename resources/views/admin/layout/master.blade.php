@@ -10,22 +10,14 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('admin_asset/images/favicon.ico') }}">
     <!-- Table datatable css -->
-    <link href="{{ asset('admin_asset/libs/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet"
-          type="text/css" />
-    <link href="{{ asset('admin_asset/libs/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet"
-          type="text/css" />
-    <link href="{{ asset('admin_asset/libs/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet"
-          type="text/css" />
-    <link href="{{ asset('admin_asset/libs/datatables/fixedHeader.bootstrap4.min.css') }}" rel="stylesheet"
-          type="text/css" />
-    <link href="{{ asset('admin_asset/libs/datatables/scroller.bootstrap4.min.css') }}" rel="stylesheet"
-          type="text/css" />
-    <link href="{{ asset('admin_asset/libs/datatables/dataTables.colVis.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('admin_asset/libs/datatables/fixedColumns.bootstrap4.min.css') }}" rel="stylesheet"
-          type="text/css" />
+    <link href="{{ asset('admin_asset/libs/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin_asset/libs/datatables/buttons.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin_asset/libs/datatables/responsive.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
 
     <!--Select2-->
-
+    <link href="{{ asset('admin_asset/libs/dropify/dropify.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- Plugins css -->
+    <link href="{{ asset('admin_asset/libs/dropzone/dropzone.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin_asset/libs/dropify/dropify.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App css -->
     <link href="{{ asset('admin_asset/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"
@@ -191,7 +183,7 @@
                     <li>
                         <a href="{{ route('list-user') }}">
                             <i class="fas fa-user-friends"></i>
-                            <span class="badge badge-danger badge-pill float-right">3</span>
+
                             <span> Danh sách nhân viên </span>
                         </a>
                     </li>
@@ -214,9 +206,9 @@
 
     <div class="content-page">
         <div class="content">
-
-           @yield('content')
-
+            <div class="container-fluid">
+                @yield('content')
+            </div>
         </div> <!-- end content -->
 
 
@@ -262,24 +254,24 @@
 <script src="{{ asset('admin_asset/libs/jquery-ui/jquery-ui.min.js') }}"></script>
 
 
-<!-- Datatable plugin js -->
+<!-- Required datatable js -->
 <script src="{{ asset('admin_asset/libs/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('admin_asset/libs/datatables/dataTables.bootstrap4.min.js') }}"></script>
-
-<script src="{{ asset('admin_asset/libs/datatables/dataTables.responsive.min.js') }}"></script>
-<script src="{{ asset('admin_asset/libs/datatables/responsive.bootstrap4.min.js') }}"></script>
-
+<!-- Buttons examples -->
 <script src="{{ asset('admin_asset/libs/datatables/dataTables.buttons.min.js') }}"></script>
 <script src="{{ asset('admin_asset/libs/datatables/buttons.bootstrap4.min.js') }}"></script>
-
+<script src="{{ asset('admin_asset/libs/jszip/jszip.min.js') }}"></script>
+<script src="{{ asset('admin_asset/libs/pdfmake/pdfmake.min.js') }}"></script>
+<script src="{{ asset('admin_asset/libs/pdfmake/vfs_fonts.js') }}"></script>
 <script src="{{ asset('admin_asset/libs/datatables/buttons.html5.min.js') }}"></script>
 <script src="{{ asset('admin_asset/libs/datatables/buttons.print.min.js') }}"></script>
 
-<script src="{{ asset('admin_asset/libs/datatables/dataTables.keyTable.min.js') }}"></script>
-<script src="{{ asset('admin_asset/libs/datatables/dataTables.fixedHeader.min.js') }}"></script>
-<script src="{{ asset('admin_asset/libs/datatables/dataTables.scroller.min.js') }}"></script>
-<script src="{{ asset('admin_asset/libs/datatables/dataTables.fixedColumns.min.js') }}"></script>
+<!-- Responsive examples -->
+<script src="{{ asset('admin_asset/libs/datatables/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('admin_asset/libs/datatables/responsive.bootstrap4.min.js') }}"></script>
 
+<!-- Datatables init -->
+<script src="{{ asset('admin_asset/js/pages/datatables.init.js') }}"></script>
 <!--Select2-->
 
 
@@ -303,9 +295,9 @@
 <script src="{{ asset('admin_asset/js/pages/datatables.init.js') }}"></script>
 
 <!--SweetAlert-->
-
 <!-- Plugins js -->
-<script src="{{ asset('admin_asset/libs/dropify/dropify.min.js') }}"></script>
+<script src="{{ asset('admin_asset/libs/dropzone/dropzone.min.js') }}"></script>
+<!-- Plugins js -->
 
 </body>
 </html>
