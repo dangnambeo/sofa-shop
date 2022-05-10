@@ -59,13 +59,12 @@ class userController extends Controller
         $user->phone = $request->phone;
       //  $user->user_name = $request->user_name;
         $user->role_id = $request->role_id;
-        if ($request->change_pass == "on") {
+        if ($request->checkbox3 == "on") {
             $this->validate($request, [
-
-                "password" => "required",
-                "password2" => "required|same:password"
+                "pass" => "required",
+                "pass2" => "required|same:pass"
             ]);
-            $user->password = bcrypt($request->password);
+            $user->pass = bcrypt($request->pass);
         }
         if ($user->save()) {
             if ($request->hasFile('avatar')) {
@@ -77,5 +76,10 @@ class userController extends Controller
             }
         }
         return redirect(route('list-user'));
+    }
+    public function DelUser($id){
+        $user = User::find($id);
+        $user->delete();
+        return back();
     }
 }

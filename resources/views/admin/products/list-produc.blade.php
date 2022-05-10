@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
-                <h4 class="page-title">Danh sách nhân nhiên</h4>
+                <h4 class="page-title">Danh sách Sản phâm</h4>
             </div>
         </div>
     </div>
@@ -16,42 +16,33 @@
                     <thead>
                     <tr align="center">
                         <th style="text-align: center">STT</th>
-                        <th style="text-align: center">Tên Đầy Đủ</th>
-                        <th style="text-align: center">Tên Đăng Nhập</th>
-                        <th style="text-align: center">Số điện thoại</th>
-                        <th style="text-align: center">Cấp Quản Lý</th>
+                        <th style="text-align: center">Tên sản phẩm</th>
+                        <th style="text-align: center">Hình ảnh</th>
+                        <th style="text-align: center">Giá sản phẩm</th>
+                        <th style="text-align: center">Số lượng</th>
+                        <th style="text-align: center">Loại hàng</th>
+                        <th style="text-align: center">Ưu đãi</th>
                         <th style="text-align: center">
-                            <a class="btn btn-primary waves-effect waves-light btn-xs"
-                               href="{{ route('getAdd-user') }}">
-                                <i class="fas fa-user-plus"></i> Thêm nhân viên
+                            <a type="button" class="btn btn-sm btn-info waves-effect waves-light" data-toggle="modal" data-target="#exampleModalScrollable">
+                                <i class=" fas fa-plus"></i> Thêm Chuyên mục
                             </a>
                         </th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php $i = 1; ?>
-                    @foreach ($user as $list)
+                    @foreach ($cate as $list)
                         <tr>
                             <td style="text-align: center">{{ $i }}</td>
-                            <td style="text-align: center">{{ $list->full_name }}</td>
-                            <td style="text-align: center">{{ $list->user_name }}</td>
-                            <td style="text-align: center">{{ $list->phone }}</td>
-                            <td style="text-align: center">
-                                @if ($list->role_id == 1)
-                                    {{ 'Nhân viên' }}
 
-                                @else
-                                    {{ 'Quản trị viên' }}
-                                @endif
-                            </td>
                             <td style="text-align: center">
                                 <a class="btn btn-facebook waves-effect waves-light btn-xs"
-                                   href="{{ route('edit-staff',$list->id) }}">
+                                   href="#">
                                     <i class="typcn typcn-edit"></i> Sửa
                                 </a>
                                 <a class="btn btn-pinterest waves-effect waves-light btn-xs delete"
-                                   href="{{ route('del-staff',$list->id) }}"
-                                   data-confirm="Bạn có muốn xóa người dùng">
+                                   href="#"
+                                   data-confirm="Bạn có muốn xóa chuyên mục, các sản phẩm liên quan cũng sẽ bị xóa theo">
                                     <i class=" typcn typcn-times"></i> Xóa
                                 </a>
                             </td>
@@ -63,5 +54,4 @@
             </div>
         </div>
     </div>
-
 @endsection

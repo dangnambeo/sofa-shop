@@ -27,13 +27,12 @@
           type="text/css" />
 
     <!--Select2-->
-
+    <link href="{{ asset('admin_asset/libs/custombox/custombox.min.css') }}" rel="stylesheet" type="text/css" >
 
     <link href="{{ asset('admin_asset/libs/multiselect/multi-select.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin_asset/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin_asset/libs/bootstrap-select/bootstrap-select.min.css') }}" rel="stylesheet"
           type="text/css" />
-
 
 
     <!--Select2-->
@@ -202,8 +201,25 @@
                             <span> Quản Lý Nhân viên</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('list-cate') }}" class="waves-effect waves-light">
+                            <i class="mdi mdi-file-document-box-multiple-outline"></i>
+                            <span> Quản Lý Chuyên mục</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('list-produc') }}" class="waves-effect waves-light">
+                            <i class=" fas fa-box"></i>
+                            <span> Quản Lý Sản phẩm</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('listdiscount') }}" class="waves-effect waves-light">
+                            <i class="  mdi mdi-sale"></i>
+                            <span> Quản Lý Ưu đãi</span>
+                        </a>
+                    </li>
                 </ul>
-
             </div>
             <!-- End Sidebar -->
 
@@ -334,7 +350,16 @@
 <script src="{{ asset('admin_asset/js/app.js') }}"></script>
 <!-- Plugins js -->
 @yield('script')
-
+@include('sweetalert::alert')
+<script>
+    $('.delete').on("click", function(e) {
+        e.preventDefault();
+        var choice = confirm($(this).attr('data-confirm'));
+        if (choice) {
+            window.location.href = $(this).attr('href');
+        }
+    });
+</script>
 </body>
 
 </html>

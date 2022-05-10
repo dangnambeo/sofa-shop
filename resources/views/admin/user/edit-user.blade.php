@@ -53,7 +53,7 @@
                         <div class="col-md-6">
                             <div class="card-box">
                                 <div class="checkbox checkbox-success">
-                                    <input id="checkbox3" type="checkbox" name="change_pass">
+                                    <input id="checkbox3" type="checkbox" name="checkbox3">
                                     <label for="checkbox3">
                                         Đổi mật khẩu
                                     </label>
