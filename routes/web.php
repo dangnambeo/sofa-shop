@@ -46,11 +46,19 @@ Route::get('/', function () {
     Route::group(['prefix' => 'products'],function (){
         //Danh sách
         Route::get('/','productsController@ListProduc')->name('list-produc');
+
+        Route::get('/them-sanpham','productsController@getAddProducts')->name('add-products');
+        Route::post('/post-addSP','productsController@postAddProducts')->name('post-add-products');
     });
     Route::group(['prefix' => 'discount'],function (){
         Route::get('/','discountController@Listdiscount')->name('listdiscount');
 
         Route::get('/add-discount','discountController@getAdddDiscount')->name('add-discount');
         Route::post('/post-add-discount','discountController@postAddDiscount')->name('post-add-discount');
+
+        Route::get('/edit-discount={id}','discountController@getEditDiscount')->name('discount-edit');
+        Route::post('/postEdit-discout/{id}','discountController@postEditDiscount')->name('post-edit-discount');
+
+        Route::get('/del-discount={id}','discountController@DelDiscount')->name('del-discount');
     });
 //});

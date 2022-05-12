@@ -36,14 +36,12 @@
                             <td>{{ $list->time }}</td>
                             <td style="text-align: center">
                                 <a class="btn btn-facebook waves-effect waves-light btn-xs"
-                                   href="#">
+                                   href="{{ route('discount-edit',$list->id) }}">
                                     <i class="typcn typcn-edit"></i> Sửa
                                 </a>
-                                <a class="btn btn-pinterest waves-effect waves-light btn-xs delete"
-                                   href="#"
-                                   data-confirm="Bạn có muốn xóa chuyên mục, các sản phẩm liên quan cũng sẽ bị xóa theo">
+                                <a class="btn btn-pinterest waves-effect waves-light btn-xs " href="{{ route('del-discount',$list->id) }}" >
                                     <i class=" typcn typcn-times"></i> Xóa
-                                </a>
+                                </a>s
                             </td>
                         </tr>
                         <?php $i++; ?>

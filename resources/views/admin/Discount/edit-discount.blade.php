@@ -10,28 +10,28 @@
     <!-- end page title -->
     <div class="card mb-4">
         <div class="card-body" style="margin: 20px">
-            <form action="{{ route('post-add-discount') }}" method="POST">
+            <form action="{{ route('post-edit-discount',$sale->id) }}" method="POST">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-4">
                             <label>Tên Ưu đãi</label>
-                            <input class="form-control" name=" description" type="text">
+                            <input class="form-control" name=" description" type="text" value="{{ $sale->description }}">
                         </div>
                         <div class="col-md-4">
                             <label for="percent">Phần trăm ưu đãi</label>
                             <select class="select2 form-control" name=" percent" id="percent">
                                 <option></option>
-                                <option value="5">5</option>
-                                <option value="15">15</option>
-                                <option value="20">20</option>
-                                <option value="30">30</option>
-                                <option value="50">50</option>
+                                <option {{ $sale->percent == 5 ? ' selected' : '' }} value="5">5</option>
+                                <option {{ $sale->percent == 15 ? ' selected' : '' }} value="15">15</option>
+                                <option {{ $sale->percent == 20 ? ' selected' : '' }} value="20">20</option>
+                                <option {{ $sale->percent == 30 ? ' selected' : '' }} value="30">30</option>
+                                <option {{ $sale->percent == 50 ? ' selected' : '' }} value="50">50</option>
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label>Thời gian ưu đãi:</label>
-                            <input class="form-control" name=" time" type="text">
+                            <label for="time">Thời gian ưu đãi:</label>
+                            <input class="form-control" id="time" name=" time" type="text" value="{{ $sale->time }}">
                         </div>
                     </div>
                 </div>

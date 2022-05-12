@@ -23,18 +23,23 @@
                         <th style="text-align: center">Loại hàng</th>
                         <th style="text-align: center">Ưu đãi</th>
                         <th style="text-align: center">
-                            <a type="button" class="btn btn-sm btn-info waves-effect waves-light" data-toggle="modal" data-target="#exampleModalScrollable">
-                                <i class=" fas fa-plus"></i> Thêm Chuyên mục
+                            <a class="btn btn-primary waves-effect waves-light btn-xs" href="{{ route('add-products') }}">
+                                <i class=" fas fa-plus"></i> Thêm Sản phẩm
                             </a>
                         </th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php $i = 1; ?>
-                    @foreach ($cate as $list)
+                    @foreach ($sp as $list)
                         <tr>
                             <td style="text-align: center">{{ $i }}</td>
-
+                            <td style="text-align: center">{{ $i }}</td>
+                            <td style="text-align: center">{{ $list ->name}}</td>
+                            <td style="text-align: center">{{ $list ->img }}</td>
+                            <td style="text-align: center">{{ $list ->price }}</td>
+                            <td style="text-align: center">{{ $list ->quantity }}</td>
+                            <td style="text-align: center">{{ $list ->discount_id }}</td>
                             <td style="text-align: center">
                                 <a class="btn btn-facebook waves-effect waves-light btn-xs"
                                    href="#">
