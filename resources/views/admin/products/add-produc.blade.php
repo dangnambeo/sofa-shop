@@ -14,7 +14,7 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label for="cate">Loại sản phẩm</label>
                             <select id="cate" class="select2 form-control" name="cate_id">
                                 <option>Chọn loại sản phẩm</option>
@@ -23,50 +23,40 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-md-4">
-                            <label>Tên sản phẩm:</label>
-                            <input class="form-control" name=" phone" type="text">
+                        <div class="col-md-5">
+                            <label for="name">Tên sản phẩm:</label>
+                            <input class="form-control" id="name" name=" name" type="text">
                         </div>
                         <div class="col-md-4">
-                            <label>Địa chỉ mail:</label>
-                            <input class="form-control" name=" email" type="text">
+                            <label for="price">Giá sản phẩm:</label>
+                            <input class="form-control" id="price" name=" price" type="number">
                         </div>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-md-10">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Tạo Tên Đăng Nhập</label>
-                                    <input class="form-control" name="user_name" type="text">
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Cấp Quản Lý</label>
-                                    <select class="select2 form-control" name=" role_id">
-                                        <option>Chọn quyền quản lý</option>
-                                        <option value="0">Quản trị viên</option>
-                                        <option value="1">Nhân viên</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Tạo Mật Khẩu</label>
-                                    <input class="form-control" name="pass" type="password">
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Nhập Lại Mật Khẩu</label>
-                                    <input class="form-control" name="pass2" type="password">
-                                </div>
-                            </div>
+                        <div class="col-md-6">
+                            <label for="quantity">Số lượng sản phẩm:</label>
+                            <input class="form-control" id="quantity" name=" quantity" type="number">
                         </div>
-                        <div class="col-md-2">
-                            <label class="control-label" for="avatar">Ảnh đại diện:</label>
-                            <input type="file" name="avatar" id="avatar" class="dropify">
+                        <div class="col-md-6">
+                            <label for="discount_id">Ưu đãi:</label>
+                            <select id="discount_id" class="select2 form-control" name="discount_id">
+                                <option>Chọn Ưu đãi</option>
+                                @foreach($discount as $sale_sp)
+                                    <option value="{{ $sale_sp->id }}">{{ $sale_sp->description }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
+                </div>
+                <div class="form-group">
+                    <label for="ckeditor" class="control-label">Mô tả sản phẩm</label>
+                    <textarea style="resize: none" name="description" class="form-control" id="ckeditor" rows="8"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="img">Ảnh Sản phẩm:</label>
+                    <input type="file" name="img" id="img" class="dropify">
                 </div>
                 <button type="submit" value="Save" class="btn btn-primary">Lưu</button>
             </form>

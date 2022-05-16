@@ -204,7 +204,7 @@
                     <li>
                         <a href="{{ route('list-cate') }}" class="waves-effect waves-light">
                             <i class="mdi mdi-file-document-box-multiple-outline"></i>
-                            <span> Quản Lý Chuyên mục</span>
+                            <span> Quản Lý Danh mục</span>
                         </a>
                     </li>
                     <li>

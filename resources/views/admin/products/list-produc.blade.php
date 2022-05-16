@@ -19,8 +19,8 @@
                         <th style="text-align: center">Tên sản phẩm</th>
                         <th style="text-align: center">Hình ảnh</th>
                         <th style="text-align: center">Giá sản phẩm</th>
-                        <th style="text-align: center">Số lượng</th>
-                        <th style="text-align: center">Loại hàng</th>
+                        <th style="text-align: center">Số lượng ( Bộ )</th>
+                        <th style="text-align: center">Danh mục</th>
                         <th style="text-align: center">Ưu đãi</th>
                         <th style="text-align: center">
                             <a class="btn btn-primary waves-effect waves-light btn-xs" href="{{ route('add-products') }}">
@@ -33,21 +33,24 @@
                     <?php $i = 1; ?>
                     @foreach ($sp as $list)
                         <tr>
-                            <td style="text-align: center">{{ $i }}</td>
-                            <td style="text-align: center">{{ $i }}</td>
-                            <td style="text-align: center">{{ $list ->name}}</td>
-                            <td style="text-align: center">{{ $list ->img }}</td>
-                            <td style="text-align: center">{{ $list ->price }}</td>
-                            <td style="text-align: center">{{ $list ->quantity }}</td>
-                            <td style="text-align: center">{{ $list ->discount_id }}</td>
+                            <td style="text-align: center; line-height: 4">{{ $i }}</td>
+                            <td style="text-align: center; line-height: 4">{{ $list ->name}}</td>
                             <td style="text-align: center">
+                                <img class="rounded" alt="64x64" src="{{ asset($list->img) }}"
+                                     style="width: 100px; height: 66px;">
+                            </td>
+                            <td style="text-align: center; line-height: 4">{{ number_format($list ->price) }} <span>₫</span> </td>
+                            <td style="text-align: center; line-height: 4">{{ $list ->quantity }}</td>
+                            <td style="text-align: center; line-height: 4">{{ $list->category->cate_tittle }}</td>
+                            <td style="text-align: center; line-height: 4">{{ $list->discount ->percent }}%</td>
+                            <td style="text-align: center; line-height: 4">
                                 <a class="btn btn-facebook waves-effect waves-light btn-xs"
-                                   href="#">
+                                   href="{{ route('products-edit',$list->id) }}">
                                     <i class="typcn typcn-edit"></i> Sửa
                                 </a>
                                 <a class="btn btn-pinterest waves-effect waves-light btn-xs delete"
-                                   href="#"
-                                   data-confirm="Bạn có muốn xóa chuyên mục, các sản phẩm liên quan cũng sẽ bị xóa theo">
+                                   href="{{ route('del-products',$list->id) }}"
+                                   data-confirm="Bạn có chắc chán muốn xóa sản phẩm">
                                     <i class=" typcn typcn-times"></i> Xóa
                                 </a>
                             </td>

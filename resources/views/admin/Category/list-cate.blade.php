@@ -18,8 +18,8 @@
                         <th style="text-align: center">STT</th>
                         <th style="text-align: center">Loại hàng</th>
                         <th style="text-align: center">
-                            <a type="button" class="btn btn-sm btn-info waves-effect waves-light" data-toggle="modal" data-target="#exampleModalScrollable">
-                                <i class=" fas fa-plus"></i> Thêm loại hàng
+                            <a class="btn btn-primary waves-effect waves-light btn-xs" data-toggle="modal" data-target="#exampleModalScrollable">
+                                <i class=" fas fa-plus"></i> Thêm danh mục
                             </a>
                         </th>
                     </tr>

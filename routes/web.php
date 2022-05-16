@@ -49,6 +49,11 @@ Route::get('/', function () {
 
         Route::get('/them-sanpham','productsController@getAddProducts')->name('add-products');
         Route::post('/post-addSP','productsController@postAddProducts')->name('post-add-products');
+
+        Route::get('/{id}','productsController@getEditProducts')->name('products-edit');
+        Route::post('/post-edit-sp/{id}','productsController@postEditProducts')->name('products-edit-post');
+
+        Route::get('/delSP/{id}','productsController@DelProducts')->name('del-products');
     });
     Route::group(['prefix' => 'discount'],function (){
         Route::get('/','discountController@Listdiscount')->name('listdiscount');
@@ -59,6 +64,6 @@ Route::get('/', function () {
         Route::get('/edit-discount={id}','discountController@getEditDiscount')->name('discount-edit');
         Route::post('/postEdit-discout/{id}','discountController@postEditDiscount')->name('post-edit-discount');
 
-        Route::get('/del-discount={id}','discountController@DelDiscount')->name('del-discount');
+        Route::get('/del-discount/{id}','discountController@DelDiscount')->name('del-discount');
     });
 //});

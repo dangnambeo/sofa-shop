@@ -41,7 +41,7 @@
                                 </a>
                                 <a class="btn btn-pinterest waves-effect waves-light btn-xs " href="{{ route('del-discount',$list->id) }}" >
                                     <i class=" typcn typcn-times"></i> Xóa
-                                </a>s
+                                </a>
                             </td>
                         </tr>
                         <?php $i++; ?>
