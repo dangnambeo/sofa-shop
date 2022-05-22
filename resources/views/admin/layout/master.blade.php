@@ -101,8 +101,20 @@
 
 
             <li class="dropdown notification-list">
+                <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#"
+                   role="button" aria-haspopup="false" aria-expanded="false">
+                    <lord-icon
+                        src="https://cdn.lordicon.com/vusrdugn.json"
+                        trigger="hover"
+                        colors="primary:#121331,secondary:#b26836,tertiary:#4bb3fd,quaternary:#f9c9c0,quinary:#ebe6ef"
+                        stroke="25"
+                        state="hover-wave"
+                        style="width:32px;height:32px">
+                    </lord-icon>
+                    <span class="d-none d-sm-inline-block ml-1">User_name</span>
+                </a>
 
-                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                <div class="dropdown-menu dropdown-menu-right profile-dropdown " >
                     <!-- item-->
                     <div class="dropdown-header noti-title">
                         <h6 class="text-overflow m-0">Welcome !</h6>
@@ -180,7 +192,7 @@
     </div>
     <!-- end Topbar -->
 
-    <!-- ========== Left Sidebar Start ========== -->
+    <!-- ========= Left Sidebar Start ========== -->
     <div class="left-side-menu">
 
         <div class="slimscroll-menu">
@@ -226,12 +238,12 @@
             <div class="clearfix"></div>
 
             <div class="help-box">
-                <h5 class="text-muted mt-0">For Help ?</h5>
+                <h5 class="text-muted mt-0">Hỗ trợ ?</h5>
                 <p class="___class_+?63___"><span class="text-info">Email:</span>
-                    <br /> support@support.com
+                    <br /> sofa.t@gmail.com
                 </p>
                 <p class="mb-0"><span class="text-info">Call:</span>
-                    <br /> (+123) 123 456 789
+                    <br /> 02400000000
                 </p>
             </div>
 
@@ -348,6 +360,8 @@
 
 <!-- App js -->
 <script src="{{ asset('admin_asset/js/app.js') }}"></script>
+
+<script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
 <!-- Plugins js -->
 @yield('script')
 @include('sweetalert::alert')

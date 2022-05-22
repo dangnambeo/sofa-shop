@@ -56,7 +56,7 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="img">Ảnh Sản phẩm:</label>
-                    <input type="file" name="img" id="img" class="dropify">
+                    <input type="file" name="img" id="img" class="dropify" data-height="300">
                 </div>
                 <button type="submit" value="Save" class="btn btn-primary">Lưu</button>
             </form>
