@@ -17,9 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::group(['prefix' => '/'],function (){
+Route::get('/login','userController@getLogin')->name('login');
+Route::post('/post-login','userController@postLogin')->name('post-login');
+
+Route::group(['middleware' => 'auth'],function (){
     //Quản lý người dùng
-    Route::group(['prefix' => 'admin'],function (){
+    Route::group(['prefix' => 'staff'],function (){
         //Danh sách nhân viên
         Route::get('/list-staff','userController@listUser')->name('list-user');
         //Thêm mới nhân viên
@@ -77,4 +80,8 @@ Route::get('/', function () {
 
         Route::get('/xoa-slide/{id}','slideController@delSlide')->name('del-slide');
     });
-//});
+});
+
+Route::group(['prefix' => '/'],function (){
+   Route::get('/Trangchu','pageController@Index')->name('index');
+});

@@ -1,26 +1,19 @@
 <header class="header">
     <div class="header-section row">
         <div class="logo col-md-2">
-            <img src="{{ asset('FE_asset/images/logo3.png') }}" alt="" width="165px" srcset="" />
+            <img src="{{ asset('image/logo3.png') }}" alt="" width="165px" srcset="" />
         </div>
         <div class="menu col-md-6">
             <div class="navigation">
                 <ul class="nav-menu">
                     <li class="menu-item">
-                        <a href="#" class="item-link">Trang Chủ</a>
+                        <a href="{{ route('index') }}" class="item-link">Trang Chủ</a>
                     </li>
-                    <li class="menu-item">
-                        <a href="#" class="item-link">Danh mục 1</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="item-link">Danh mục 2</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="item-link">Danh mục 3</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="item-link">Danh mục 4</a>
-                    </li>
+                    @foreach($cate as $list)
+                        <li class="menu-item">
+                            <a href="" class="item-link">{{ $list -> cate_tittle }}</a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -48,7 +41,7 @@
             </a>
         </div>
         <div class="login-admin col-md-1">
-            <a href="#">
+            <a href="{{ route('login') }}">
                 <lord-icon
                     src="https://cdn.lordicon.com/ajkxzzfb.json"
                     trigger="hover"

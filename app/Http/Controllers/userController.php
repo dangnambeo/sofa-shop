@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Alert;
 
 class userController extends Controller
 {
@@ -81,5 +83,30 @@ class userController extends Controller
         $user = User::find($id);
         $user->delete();
         return back();
+    }
+    public function getLogin()
+    {
+        if (Auth::guard()->check()) {
+            return redirect(\route('list-produc'));
+        } else {
+            return view('admin.login');
+        }
+    }
+    public function postLogin(Request $request){
+        $user_name = $request ->user_name;
+        $pass = $request ->pass;
+        // $password = $request ->password;
+
+        if (Auth::attempt(['user_name'=>$user_name,'pass'=>$pass])){
+            alert()->toast('Đăng nhập thành công', 'success')->persistent(false)->autoClose(1200);
+            return redirect(route('list-produc'));
+        } else{
+            alert()->toast('Bạn đã nhập sai tên đăng nhập hoặc mật khẩu', 'error')->persistent(false)->autoClose(5000);
+            return back();
+        }
+    }
+    public function getLogout(){
+        Auth::logout();
+        return redirect(route('login'));
     }
 }

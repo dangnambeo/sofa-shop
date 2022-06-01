@@ -42,7 +42,7 @@ ul.nav-menu li.menu-item {
     position: relative;
 }
 ul.nav-menu li.menu-item a.item-link {
-    padding: 5px 20px 5px 20px;
+    padding: 5px 10px 5px 10px;
     color: #95a5a6;
     text-decoration: none;
     text-transform: uppercase;
@@ -75,7 +75,6 @@ div.header-section .search {
 .banner{
   width: 1920px;
   height: 400px;
-  height: auto;
   margin: 0 auto;
   padding: 0;
 }
@@ -145,7 +144,7 @@ div.header-section .search {
   }
 .products .row .item .box{
       width: 18rem;
-      height: 300px;
+    height: 450px;
       border-radius: 5px;
       border: solid 2px #c7ecee;
       margin: 10px;
@@ -158,7 +157,7 @@ div.header-section .search {
     margin: 10px;
 }
   .products .row .box img{
-      width: 100%;
+      width: 284px;
   }
   .products .row .item .box .box-products, .products .row .col-md-4 .box .box-products{
       padding: 10px;
@@ -167,6 +166,7 @@ div.header-section .search {
     text-decoration: none;
     font-weight: bold;
     color: #666;
+    font-size: 15px;
   }
   .box-products h5 a:hover{
       color: #a29bfe;
@@ -303,13 +303,13 @@ div.header-section .search {
    padding: 0;
    margin: 0;
    list-style: none;
+    display: flex;
 }
 
 .main-footer .social ul li{
     font-size: 25px;
     color: #95afc0;
     margin: 10px;
-    display: inline-block;
     width: 50px;
     height: 50px;
     border: solid 1px;
