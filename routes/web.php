@@ -66,4 +66,15 @@ Route::get('/', function () {
 
         Route::get('/del-discount/{id}','discountController@DelDiscount')->name('del-discount');
     });
+    Route::group(['prefix' => 'slide'],function (){
+        Route::get('/','slideController@listSlide')->name('slide');
+
+        Route::get('/them-slide','slideController@addSlide')->name('add-slide');
+        Route::post('/post-them-slide','slideController@postAddSlide')->name('post-add-slide');
+
+        Route::get('/sua-slide/{id}','slideController@editSlide')->name('edit-slide');
+        Route::post('/post-sua-slide/{id}','slideController@postEditSlide')->name('post-edit-slide');
+
+        Route::get('/xoa-slide/{id}','slideController@delSlide')->name('del-slide');
+    });
 //});

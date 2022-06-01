@@ -97,9 +97,6 @@
 
                 </div>
             </li>
-
-
-
             <li class="dropdown notification-list">
                 <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#"
                    role="button" aria-haspopup="false" aria-expanded="false">
@@ -229,6 +226,12 @@
                         <a href="{{ route('listdiscount') }}" class="waves-effect waves-light">
                             <i class="  mdi mdi-sale"></i>
                             <span> Quản Lý Ưu đãi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('slide') }}" class="waves-effect waves-light">
+                            <i class="ion ion-md-albums"></i>
+                            <span> Quản Lý Slide</span>
                         </a>
                     </li>
                 </ul>

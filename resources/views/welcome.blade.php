@@ -1,2 +1,2 @@
-@extends('admin.layout.master')
-@extends('admin.layout.header')
+@extends('shop-page.layout.master')
+@extends('shop-page.layout.header')
