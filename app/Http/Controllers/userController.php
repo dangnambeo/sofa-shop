@@ -21,15 +21,15 @@ class userController extends Controller
         $eror1 = [
             'full_name.required' => 'Bạn chưa nhập tên người dùng',
             'user_name.required' => 'Bạn chưa nhập tên đăng nhập',
-            'pass.required' => 'Bạn chưa nhập mật khẩu',
-            'pass2.required' => 'Bạn chưa nhập lại mật khẩu ',
-            'pass2.same' => 'Mật Khẩu nhập lại không khớp ',
+            'password.required' => 'Bạn chưa nhập mật khẩu',
+            'password2.required' => 'Bạn chưa nhập lại mật khẩu ',
+            'password2.same' => 'Mật Khẩu nhập lại không khớp ',
         ];
         $this->validate($request, [
             "full_name" => "required",
             "user_name" => "required",
-            "pass" => "required",
-            "pass2" => "required|same:pass"
+            "password" => "required",
+            "password2" => "required|same:password"
         ], $eror1);
         $user = new User;
         $user->full_name = $request->full_name;
@@ -37,7 +37,7 @@ class userController extends Controller
         $user->phone = $request->phone;
         $user->user_name = $request->user_name;
         $user->role_id = $request->role_id;
-        $user->pass = bcrypt($request->pass);
+        $user->password = bcrypt($request->password);
 
         if ($user->save()) {
             if ($request->hasFile('avatar')) {
@@ -63,10 +63,10 @@ class userController extends Controller
         $user->role_id = $request->role_id;
         if ($request->checkbox3 == "on") {
             $this->validate($request, [
-                "pass" => "required",
-                "pass2" => "required|same:pass"
+                "password" => "required",
+                "password2" => "required|same:password"
             ]);
-            $user->pass = bcrypt($request->pass);
+            $user->password = bcrypt($request->password);
         }
         if ($user->save()) {
             if ($request->hasFile('avatar')) {
@@ -94,10 +94,10 @@ class userController extends Controller
     }
     public function postLogin(Request $request){
         $user_name = $request ->user_name;
-        $pass = $request ->pass;
-        // $password = $request ->password;
+        $password = $request ->password;
+        // $passwordword = $request ->passwordword;
 
-        if (Auth::attempt(['user_name'=>$user_name,'pass'=>$pass])){
+        if (Auth::attempt(['user_name'=>$user_name,'password'=>$password])){
             alert()->toast('Đăng nhập thành công', 'success')->persistent(false)->autoClose(1200);
             return redirect(route('list-produc'));
         } else{

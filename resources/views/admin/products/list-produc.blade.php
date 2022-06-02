@@ -42,7 +42,11 @@
                             <td style="text-align: center; line-height: 4">{{ number_format($list ->price) }} <span>₫</span> </td>
                             <td style="text-align: center; line-height: 4">{{ $list ->quantity }}</td>
                             <td style="text-align: center; line-height: 4">{{ $list->category->cate_tittle }}</td>
-                            <td style="text-align: center; line-height: 4">{{ $list->discount ->percent }}%</td>
+                            <td style="text-align: center; line-height: 4">
+                                @if($list->discount_id != Null)
+                                    {{ $list->discount ->percent }}%
+                                @endif
+                            </td>
                             <td style="text-align: center; line-height: 4">
                                 <a class="btn btn-facebook waves-effect waves-light btn-xs"
                                    href="{{ route('products-edit',$list->id) }}">

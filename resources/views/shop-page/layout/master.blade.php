@@ -24,9 +24,42 @@
 
 <div class="clean"></div>
 @yield('banner')
-@yield('service')
+<div class="section">
+    <div class="service">
+        <div class="box-container">
+            <div class="box">
+                <lord-icon
+                    src="https://cdn.lordicon.com/jyijxczt.json"
+                    trigger="loop"
+                    colors="primary:#3a3347,secondary:#ffc738,tertiary:#ebe6ef,quaternary:#646e78"
+                    style="width:80px;height:80px">
+                </lord-icon>
+                <h3>Giao hàng nhanh</h3>
+            </div>
+            <div class="box">
+                <lord-icon
+                    src="https://cdn.lordicon.com/nxvrkirq.json"
+                    trigger="loop"
+                    colors="primary:#eeaa66"
+                    style="width:80px;height:80px">
+                </lord-icon>
+                <h3>Đổi trả trong vòng 1 tháng</h3>
+            </div>
+            <div class="box">
+                <lord-icon
+                    src="https://cdn.lordicon.com/vkweisbr.json"
+                    trigger="loop"
+                    colors="outline:#121331,primary:#646e78,secondary:#2ca58d,tertiary:#4bb3fd"
+                    style="width:80px;height:80px">
+                </lord-icon>
+                <h3>Hỗ trợ 24/7</h3>
+            </div>
+        </div>
+    </div>
+</div>
 @yield('section')
-<div class="footer">
+<div class="clean"></div>
+<footer class="footer">
     <div class="main-footer">
         <div class="row">
             <div class="col-md-4">
@@ -55,7 +88,7 @@
             </div>
         </div>
     </div>
-</div>
+</footer>
 <script>
     $(document).ready(function(){
         $("#flip").click(function(){

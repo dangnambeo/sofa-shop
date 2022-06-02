@@ -60,12 +60,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label> Mật Khẩu Mới:</label>
-                                    <input class="form-control pass" type="password" name="pass" placeholder="Nhập mật khẩu mới"
+                                    <input class="form-control pass" type="password" name="password" placeholder="Nhập mật khẩu mới"
                                            disabled="">
                                 </div>
                                 <div class="form-group">
                                     <label>Nhập lại mật khẩu mới:</label>
-                                    <input class="form-control pass" type="password" name="pass2"
+                                    <input class="form-control pass" type="password" name="password2"
                                            placeholder="Nhập lại mật khẩu mới" disabled="">
                                 </div>
                             </div>

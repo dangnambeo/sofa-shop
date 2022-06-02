@@ -100,15 +100,20 @@
             <li class="dropdown notification-list">
                 <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#"
                    role="button" aria-haspopup="false" aria-expanded="false">
-                    <lord-icon
-                        src="https://cdn.lordicon.com/vusrdugn.json"
-                        trigger="hover"
-                        colors="primary:#121331,secondary:#b26836,tertiary:#4bb3fd,quaternary:#f9c9c0,quinary:#ebe6ef"
-                        stroke="25"
-                        state="hover-wave"
-                        style="width:32px;height:32px">
-                    </lord-icon>
-                    <span class="d-none d-sm-inline-block ml-1">User_name</span>
+                    @if((Auth::user()->avatar)==Null)
+                        <lord-icon
+                            src="https://cdn.lordicon.com/vusrdugn.json"
+                            trigger="hover"
+                            colors="primary:#121331,secondary:#b26836,tertiary:#4bb3fd,quaternary:#f9c9c0,quinary:#ebe6ef"
+                            stroke="25"
+                            state="hover-wave"
+                            style="width:32px;height:32px">
+                        </lord-icon>
+                    @else
+                        <img src="{{ asset(Auth::user()->avatar) }}" alt="user-image" class="rounded-circle">
+                    @endif
+
+                    <span class="d-none d-sm-inline-block ml-1">{{ Auth::user()->user_name }}</span>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown " >

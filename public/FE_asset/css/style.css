@@ -95,17 +95,17 @@ div.header-section .search {
     border-radius: .5rem;
     padding:2rem;
   }
-  
+
   .service .box-container .box{
     text-align: center;
     flex:1 1 30rem
   }
-  
+
   .service .box-container .box i{
     font-size: 4rem;
     color:orange;
   }
-  
+
   .service .box-container .box h3{
     font-size: 20px;
     font-weight: bold;
@@ -113,7 +113,7 @@ div.header-section .search {
     color:black;
     padding-top: 1rem;
   }
-  
+
   .service .box-container .box p{
     font-size: 16px;
     color:#666;
@@ -151,10 +151,13 @@ div.header-section .search {
   }
   .products .row .col-md-4 .box{
     width: 22rem;
-    height: 350px;
+      height: 500px;
     border-radius: 5px;
     border: solid 2px #c7ecee;
     margin: 10px;
+}
+.products .row .col-md-4 .box img{
+    width: 348px;
 }
   .products .row .box img{
       width: 284px;
@@ -171,9 +174,16 @@ div.header-section .search {
   .box-products h5 a:hover{
       color: #a29bfe;
 }
-.box-products .price span{
+.box-products .price .discount-price .price-old{
+    font-weight: bold;
+    font-size: 15px;
+    color: #95a5a6;
+    text-decoration: line-through;
+}
+.box-products .price .price-new{
     font-weight: bold ;
     color: #7C4DFF;
+    font-size: 20px;
 }
 .box-products .cart{
       text-align: end;

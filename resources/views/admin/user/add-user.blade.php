@@ -50,11 +50,11 @@
                               <div class="row">
                                   <div class="col-md-6">
                                       <label>Tạo Mật Khẩu</label>
-                                      <input class="form-control" name="pass" type="password">
+                                      <input class="form-control" name="password" type="password">
                                   </div>
                                   <div class="col-md-6">
                                       <label>Nhập Lại Mật Khẩu</label>
-                                      <input class="form-control" name="pass2" type="password">
+                                      <input class="form-control" name="password2" type="password">
                                   </div>
                               </div>
                           </div>
