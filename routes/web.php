@@ -20,6 +20,8 @@ Route::get('/', function () {
 Route::get('/login','userController@getLogin')->name('login');
 Route::post('/post-login','userController@postLogin')->name('post-login');
 
+Route::get('/logout','userController@getLogout')->name('logout');
+
 Route::group(['middleware' => 'auth'],function (){
     Route::group(['prefix' => 'admin'],function (){
         //Quản lý người dùng
