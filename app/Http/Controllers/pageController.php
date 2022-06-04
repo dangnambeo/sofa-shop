@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\category;
 use App\products;
+use App\cart;
+use Session;
 use Illuminate\Http\Request;
 
 class pageController extends Controller
@@ -26,4 +28,52 @@ class pageController extends Controller
         $sp_other = products::orderBy('id','desc')->paginate(6);
         return view('shop-page.viewproducts',compact('sp_page','sp_other'));
     }
+
+    public function addCart(Request $request, $id){
+        $product = products::where('id',$id)->first();
+        if ($product != null){
+            $oldcart = Session('Cart') ? Session('Cart') : null;
+            $newCart = new cart($oldcart);
+            $newCart->AddCart($product, $id);
+
+            $request->session()->put('Cart', $newCart);
+        }
+        return view('shop-page.cart');
+    }
+    public function delCart(Request $request, $id){
+        $oldcart = Session('Cart') ? Session('Cart') : null;
+        $newCart = new cart($oldcart);
+        $newCart->DelItemCart($id);
+        if (count($newCart ->products) > 0){
+            $request->session()->put('Cart', $newCart);
+        }
+        else{
+            $request->session()->forget('Cart');
+        }
+        return view('shop-page.cart');
+    }
+    public function listCart(){
+        return view('shop-page.viewlist-cart');
+    }
+    public function delListCart(Request $request, $id){
+        $oldcart = Session('Cart') ? Session('Cart') : null;
+        $newCart = new cart($oldcart);
+        $newCart->DelItemCart($id);
+        if (count($newCart ->products) > 0){
+            $request->session()->put('Cart', $newCart);
+        }
+        else{
+            $request->session()->forget('Cart');
+        }
+        return view('shop-page.list-cart');
+    }
+    public function editListCart(Request $request, $id, $quanty){
+        $oldcart = Session('Cart') ? Session('Cart') : null;
+        $newCart = new cart($oldcart);
+        $newCart->UpdateItemCart($id, $quanty);
+        $request->session()->put('Cart', $newCart);
+
+        return view('shop-page.list-cart');
+    }
+
 }

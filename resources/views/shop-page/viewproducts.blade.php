@@ -83,7 +83,7 @@
                                     @endif
                                 </div>
                                 <div class="cart">
-                                    <a href="">
+                                    <a onclick="AddCart({{ $list->id }})" href="javascript:" class="add_to_cart">
                                         <lord-icon
                                             src="https://cdn.lordicon.com/rmzhcgbh.json"
                                             trigger="hover"
@@ -98,4 +98,13 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function(){
+            $("#flip").click(function(){
+                $("#panel").slideToggle("slow");
+            });
+        });
+    </script>
 @endsection

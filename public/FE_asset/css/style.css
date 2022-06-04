@@ -65,8 +65,86 @@ div.header-section .search {
     border: none;
     font-size: 20px;
 }
-.cart, .login-admin{
+.login-admin{
     text-align: center;
+}.cart{
+    position: relative;
+ }
+.cart .total-quanty{
+    font-weight: bold;
+    position: absolute;
+    left: 38px;
+    bottom: 29px;
+    font-size: 12px;
+    color: red;
+}
+.cart:hover .cart-sp{
+    display: block;
+}
+.cart a{
+    text-decoration: none;
+}
+.cart-sp{
+    width: 500px;
+    padding: 5px;
+    background: #dfe6e9;
+    border: solid 1px #ced6e0;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    display: none;
+}
+.cart-sp .list-cart-sp, .cart-sp .tranps-cart{
+    width: 100%;
+}
+.card-sp{
+    padding-bottom: 10px;
+}
+.list-cart-sp h5{
+    font-weight: bold;
+    color: #5352ed;
+}
+.card-sp .main-cart h6{
+    font-weight: bold;
+    font-size: 15px;
+    color: #576574;
+}
+.card-sp .main-cart h6 span{
+    font-size: 13px;
+    color: #341f97;
+}
+.card-sp .main-cart span.price-item-cart{
+    font-size: 13px;
+    font-style: italic;
+    font-weight: bold;
+    color: #5f27cd;
+}
+.card-sp .del-cart-item{
+
+    text-align: center;
+    font-size: 20px;
+    /* color: red; */
+   padding-top: 25px; ;
+}
+.card-sp .del-cart-item span{
+    color: #3742fa;
+    cursor: pointer;
+}
+.card-sp .del-cart-item span:hover{
+    color: #ff4757;
+}
+.tranps-cart{
+    text-align: center;
+    padding: 20px;
+}
+.tranps-cart a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #2e86de;
+}
+.tranps-cart a:hover{
+    color: #5f27cd;
 }
 .clean{
     padding-top: 75px;
@@ -266,6 +344,46 @@ div.header-section .search {
     text-transform: uppercase;
     font-weight: bold;
   }
+.cart-table, .total-bill{
+    background: #f9f9f9;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+td span {
+    margin: 5px;
+}
+td a {
+    margin: 15px;
+    font-size: 15px;
+}
+td span.newprice {
+    font-weight: bold;
+}
+td span.oldprice {
+    font-size: 12px;
+    text-decoration: line-through;
+}
+td span.totalprice {
+    font-weight: bold;
+}
+td span.edit {
+    color: #10ac84;
+    cursor: pointer;
+}
+td span.del {
+    color: #ee5253;
+    cursor: pointer;
+}
+.total-bill p{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+.total-bill p span.red-text{
+    color: #d63031;
+}
   .description{
     background: #7C4DFF;
     width: 30%;

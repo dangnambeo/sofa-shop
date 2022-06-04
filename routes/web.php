@@ -86,11 +86,19 @@ Route::group(['middleware' => 'auth'],function (){
     });
 });
 
-Route::group(['prefix' => '/'],function (){
-   Route::get('/Trangchu','pageController@Index')->name('index');
+//Route::group(['prefix' => '/'],function (){
+   Route::get('/trangchu','pageController@Index')->name('index');
    Route::get('/gheSofa','pageController@viewall')->name('viewall');
 
    Route::get('/danhmuc/{id}','pageController@viewpage')->name('viewpage');
 
    Route::get('/sanpham/{id}','pageController@viewproducts')->name('viewproducts');
-});
+
+   Route::get('/Add-Cart/{id}','pageController@addCart')->name('addCart');
+   Route::get('/Del-Item-Cart/{id}','pageController@delCart')->name('delCart');
+   Route::get('/List-Item-Cart','pageController@listCart')->name('listCart');
+
+   Route::get('/Del-list-Cart/{id}','pageController@delListCart')->name('delListCart');
+   Route::get('/Edit-list-Cart/{id}/{quanty}','pageController@editListCart')->name('editListCart');
+
+//});

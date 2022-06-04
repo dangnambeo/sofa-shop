@@ -30,15 +30,47 @@
         </div>
 
         <div class="cart col-md-1">
-            <a href="#">
+            <a href="#" class="icon">
                 <lord-icon
-                    src="https://cdn.lordicon.com/cllunfud.json"
-                    trigger="hover"
-                    colors="outline:#121331,primary:#646e78,secondary:#ebe6ef"
-                    style="width: 60px; height: 60px"
+                        src="https://cdn.lordicon.com/cllunfud.json"
+                        trigger="hover"
+                        colors="outline:#121331,primary:#646e78,secondary:#ebe6ef"
+                        style="width: 60px; height: 60px"
                 >
                 </lord-icon>
             </a>
+            @if(Session::has("Cart") != null)
+                <span class="total-quanty" id="total-quanty-show">{{ Session::get("Cart")->totalQuanty }}</span>
+            @else
+                <span class="total-quanty" id="total-quanty-show">0</span>
+            @endif
+            <div class="cart-sp">
+                <div class="list-cart-sp"  id="change-item-cart">
+                    @if(Session::has("Cart") != null)
+                        @foreach(Session::get("Cart")->products as $list)
+                            <div class="card-sp">
+                                <div class="row" style="width: 100%; margin: 0">
+                                    <img src="{{ asset($list['productInfo']->img) }}" class="col-md-3"  alt="">
+                                    <div class="main-cart col-md-7">
+                                        <h6>{{ $list['productInfo']->name }} <span>x {{ $list['quanty'] }}</span></h6>
+                                        <span class="price-item-cart">{{ number_format($list['productInfo']->price) }} đ</span>
+                                    </div>
+                                    <div class="del-cart-item col-md-2">
+                                        <span data-id="{{ $list['productInfo']->id }}"><i class="fa-solid fa-trash-can"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                        @endforeach
+                        <h5>Tổng tiền: <span>{{ number_format(Session::get("Cart")->totalPrice) }} đ</span></h5>
+                    @endif
+                </div>
+                <hr>
+                <div class="tranps-cart">
+                    <a href="{{ route('listCart') }}">Xem giỏ hàng</a>
+                </div>
+            </div>
+
         </div>
         <div class="login-admin col-md-1">
             <a href="{{ route('login') }}">

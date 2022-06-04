@@ -18,7 +18,7 @@
     <!-- Fontawesome -->
     <link rel="stylesheet" href="{{ asset('FE_asset/fontawesome/css/all.css') }}" />
     <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
@@ -89,12 +89,47 @@
         </div>
     </div>
 </footer>
+@yield('script')
+<!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
 <script>
-    $(document).ready(function(){
-        $("#flip").click(function(){
-            $("#panel").slideToggle("slow");
+    function AddCart(id){
+        $.ajax({
+           url: '/Add-Cart/'+id,
+           type: 'GET'
+        }).done(function (response){
+           console.log(response);
+            RenderCart(response);
+            alertify.success('Thêm thành công sản phẩm vào giỏ hàng');
+        });
+    }
+
+    $("#change-item-cart").on("click", ".del-cart-item span", function (){
+        $.ajax({
+            url: 'Del-Item-Cart/'+$(this).data("id"),
+            type: 'GET'
+        }).done(function (response){
+            console.log(response);
+            RenderCart(response);
+            alertify.success('Xóa thành công sản phẩm trong giỏ hàng');
         });
     });
+    function RenderCart(response){
+        $("#change-item-cart").empty();
+        $("#change-item-cart").html(response);
+        $("#total-quanty-show").text($("#total-quanty-cart").val());
+
+    }
 </script>
 </body>
 </html>
