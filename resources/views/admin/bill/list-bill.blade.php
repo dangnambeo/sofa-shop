@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
-                <h4 class="page-title">Danh sách danh mục</h4>
+                <h4 class="page-title">Danh sách đơn hàng</h4>
             </div>
         </div>
     </div>
@@ -30,11 +30,11 @@
                             <td style="text-align: center"># {{ $list->id }}</td>
                             <td style="text-align: center">
                                 <a class="btn btn-success waves-effect waves-light btn-xs"
-                                   href="#">
+                                   href="{{ route('order-list',$list->id) }}">
                                     <i class="typcn typcn-eye"></i> Xem chi tiết
                                 </a>
                                 <a class="btn btn-pinterest waves-effect waves-light btn-xs delete"
-                                   href="{{ route('del-cate',$list->id) }}"
+                                   href="#"
                                    data-confirm="Bạn có muốn xóa chuyên mục, các sản phẩm liên quan cũng sẽ bị xóa theo">
                                     <i class=" typcn typcn-times"></i> Xóa
                                 </a>
@@ -46,29 +46,5 @@
                 </table>
             </div>
         </div>
-    </div>
-    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-         aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-        <form action="{{ route('post-add-cate') }}" method="POST" class="modal-dialog modal-dialog-scrollable" role="document">
-            {{ csrf_field() }}
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="exampleModalScrollableTitle">Thêm mới danh mục:</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="cate_tittle">Tên danh mục:</label>
-                        <input class="form-control" id="cate_tittle" name="cate_tittle" type="text">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                    <button type="submit" value="save"  class="btn btn-primary">Lưu</button>
-                </div>
-            </div>
-        </form>
     </div>
 @endsection

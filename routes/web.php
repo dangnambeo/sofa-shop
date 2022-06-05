@@ -74,6 +74,8 @@ Route::group(['middleware' => 'auth'],function (){
         });
         Route::group(['prefix' => 'bill'],function (){
             Route::get('/','BillController@listBill')->name('bill-list');
+
+            Route::get('/don-hang/{id}','BillController@listOrder')->name('order-list');
         });
         Route::group(['prefix' => 'slide'],function (){
             Route::get('/','slideController@listSlide')->name('slide');

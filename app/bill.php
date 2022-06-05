@@ -11,4 +11,7 @@ class bill extends Model
     public function order(){
         return $this->hasMany(orders::class,'bill_id');
     }
+    public function customer(){
+        return $this->hasOne(custormer::class,'id');
+    }
 }
