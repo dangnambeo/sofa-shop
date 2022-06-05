@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class custormer extends Model
 {
-    protected $table = 'custormer';
+    protected $table = 'customer';
 }

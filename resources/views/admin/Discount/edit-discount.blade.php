@@ -22,6 +22,7 @@
                             <label for="percent">Phần trăm ưu đãi</label>
                             <select class="select2 form-control" name=" percent" id="percent">
                                 <option></option>
+                                <option {{ $sale->percent == 0 ? ' selected' : '' }} value="0">0</option>
                                 <option {{ $sale->percent == 5 ? ' selected' : '' }} value="5">5</option>
                                 <option {{ $sale->percent == 15 ? ' selected' : '' }} value="15">15</option>
                                 <option {{ $sale->percent == 20 ? ' selected' : '' }} value="20">20</option>

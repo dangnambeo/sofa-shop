@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\bill;
 use App\category;
+use App\custormer;
+use App\orders;
 use App\products;
 use App\cart;
 use Session;
@@ -75,5 +78,34 @@ class pageController extends Controller
 
         return view('shop-page.list-cart');
     }
+    public function Delivery(){
+        return view('shop-page.delivery');
+    }
+    public function postOrder(Request $request){
+        $cartInfo = Session::get("Cart")->products;
 
+        $customer = new custormer;
+        $customer ->customer_name = $request->customer_name;
+        $customer ->phone = $request->phone;
+        $customer ->address = $request->address;
+        $customer->save();
+
+        $bill = new bill;
+        $bill -> customer_id = $customer->id;
+        $bill ->total = Session::get("Cart")->totalPrice;
+        $bill ->save();
+
+        if (Session::has("Cart")>0){
+            foreach ($cartInfo as $key => $list){
+                $order = new orders;
+                $order ->bill_id = $bill->id;
+                $order ->product_id = $list['productInfo']->id;
+                $order ->number = $list['quanty'];
+                $order ->price = $list['productInfo']->price;
+                $order ->save();
+            }
+        }
+        dd('ok');
+        //return redirect(route('index'));
+    }
 }

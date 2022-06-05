@@ -18,10 +18,15 @@
                     </td>
                     <td>{{ $list['productInfo']->name }}</td>
                     <td>
-                        <span class="newprice">{{ number_format($list['productInfo']->price) }} đ</span>
+                        @if(($list['productInfo']->discount ->percent)== 0)
+                            <span class="newprice">{{ number_format($list['productInfo']->price) }} đ</span>
+                        @else
+                            <span class="newprice">{{ number_format(($list['productInfo'] ->price)-(($list['productInfo']->price)*($list['productInfo']->discount ->percent)/100)) }} đ</span>
+                            <span class="oldprice">{{ number_format($list['productInfo']->price) }} đ</span>
+                        @endif
                     </td>
                     <td style="width: 100px">
-                        <input id="quanty-item-{{ $list['productInfo']->id }}" class="form-control" type="number" value="{{ $list['quanty'] }}" />
+                        <input id="quanty-item-{{ $list['productInfo']->id }}" min="0" max="{{ $list['productInfo']->quantity }}" class="form-control" type="number" value="{{ $list['quanty'] }}" />
                     </td>
                     <td>
                         <span class="totalprice">{{ number_format($list['price']) }} đ</span>
@@ -54,5 +59,10 @@
                 </p>
             </div>
         @endif
+    </div>
+    <div class="col-lg-4 offset-lg-8">
+        <div class="buton-buy">
+            <a href="{{ route('delivery') }}">Tiến hành đặt hàng <i class="fa-solid fa-angle-right"></i></a>
+        </div>
     </div>
 </div>

@@ -72,6 +72,9 @@ Route::group(['middleware' => 'auth'],function (){
 
             Route::get('/del-discount/{id}','discountController@DelDiscount')->name('del-discount');
         });
+        Route::group(['prefix' => 'bill'],function (){
+            Route::get('/','BillController@listBill')->name('bill-list');
+        });
         Route::group(['prefix' => 'slide'],function (){
             Route::get('/','slideController@listSlide')->name('slide');
 
@@ -87,7 +90,7 @@ Route::group(['middleware' => 'auth'],function (){
 });
 
 //Route::group(['prefix' => '/'],function (){
-   Route::get('/trangchu','pageController@Index')->name('index');
+   Route::get('/Trangchu','pageController@Index')->name('index');
    Route::get('/gheSofa','pageController@viewall')->name('viewall');
 
    Route::get('/danhmuc/{id}','pageController@viewpage')->name('viewpage');
@@ -100,5 +103,8 @@ Route::group(['middleware' => 'auth'],function (){
 
    Route::get('/Del-list-Cart/{id}','pageController@delListCart')->name('delListCart');
    Route::get('/Edit-list-Cart/{id}/{quanty}','pageController@editListCart')->name('editListCart');
+
+   Route::get('/giao-hang','pageController@Delivery')->name('delivery');
+   Route::post('/Dat-hang','pageController@postOrder')->name('order-post');
 
 //});

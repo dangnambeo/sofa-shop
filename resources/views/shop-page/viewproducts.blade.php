@@ -17,7 +17,7 @@
                         <h2> {{ $sp_page->name }}</h2>
                     </div>
                     <div class="price-products">
-                        @if(($sp_page->discount_id)==Null)
+                        @if(($sp_page->discount->percent)==0)
                             <div class="price-items">
                                 <div class="span">{{ number_format($sp_page ->price) }} đ</div>
                             </div>
@@ -33,12 +33,14 @@
                     </div>
                     <div class="cart-produc">
                         <div class="purchase-cart">
-                            <a href="">Thêm vào giỏ hàng</a>
+                            <a onclick="AddCart({{ $sp_page->id }})" href="javascript:" class="add_to_cart">
+                                Thêm vào giỏ hàng
+                            </a>
                         </div>
                         <div class="purchase-phone">
-                  <span class="phone">
-                    Gọi đặt mua:
-                  </span>
+                            <span class="phone">
+                                Gọi đặt mua:
+                            </span>
                             <a href="tel:+84123456789">012.3456.789</a>
                         </div>
                     </div>

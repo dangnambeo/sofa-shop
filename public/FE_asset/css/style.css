@@ -351,6 +351,22 @@ div.header-section .search {
     border-radius: 5px;
     margin-bottom: 15px;
 }
+.buton-buy{
+    background: #9980FA;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.buton-buy a{
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+}
+.buton-buy a:hover{
+    color: #fff;
+}
 td span {
     margin: 5px;
 }
@@ -405,6 +421,44 @@ td span.del {
     margin-bottom: 15px;
     display: none;
   }
+.info-custormer, .order{
+    background: #f9f9f9;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.order h4, .info-custormer h4{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+.order .cart-item .name-cart-item h5{
+    font-weight: bold;
+    font-size: 13px;
+    color: #487eb0;
+}
+.order .cart-item .price-cart-item div.old-price-cart-item{
+    text-decoration: line-through;
+    font-size: 15px;
+    color: #487eb0;
+    font-style: italic;
+}
+.order .cart-item .price-cart-item div.new-price-cart-item{
+    font-weight: bold;
+    font-size: 16px;
+    color: #9c88ff;
+}
+.total-order p{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+.total-order p span.red-text{
+    color: #487eb0;
+    font-size: 15px;
+
+}
 /* footer */
 .footer{
     background: #c7ecee;

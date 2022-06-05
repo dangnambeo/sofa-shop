@@ -42,7 +42,7 @@
                         <div class="col-md-6">
                             <label for="discount_id">Ưu đãi:</label>
                             <select id="discount_id" class="select2 form-control" name="discount_id">
-                                <option></option>
+                                <option value="1" selected>Không có ưu đãi</option>
                                 @foreach($discount as $sale_sp)
                                     <option value="{{ $sale_sp->id }}">{{ $sale_sp->description }}</option>
                                 @endforeach

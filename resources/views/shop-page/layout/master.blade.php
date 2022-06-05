@@ -116,7 +116,7 @@
 
     $("#change-item-cart").on("click", ".del-cart-item span", function (){
         $.ajax({
-            url: 'Del-Item-Cart/'+$(this).data("id"),
+            url: '/Del-Item-Cart/'+$(this).data("id"),
             type: 'GET'
         }).done(function (response){
             console.log(response);

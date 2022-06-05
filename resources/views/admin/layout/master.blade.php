@@ -234,6 +234,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ route('bill-list') }}" class="waves-effect waves-light">
+                            <i class="  mdi mdi-sale"></i>
+                            <span> Quản Lý Đơn hàng</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('slide') }}" class="waves-effect waves-light">
                             <i class="ion ion-md-albums"></i>
                             <span> Quản Lý Slide</span>

@@ -22,6 +22,7 @@
                             <label for="percent">Phần trăm ưu đãi</label>
                             <select class="select2 form-control" name=" percent" id="percent">
                                 <option></option>
+                                <option value="0">0</option>
                                 <option value="5">5</option>
                                 <option value="15">15</option>
                                 <option value="20">20</option>
