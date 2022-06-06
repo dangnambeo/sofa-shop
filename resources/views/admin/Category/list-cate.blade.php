@@ -31,6 +31,10 @@
                             <td style="text-align: center">{{ $i }}</td>
                             <td>{{ $list->cate_tittle }}</td>
                             <td style="text-align: center">
+                                <a class="btn btn-primary waves-effect waves-light btn-xs"
+                                   href="{{ route('cate-product-list',$list->id) }}">
+                                    <i class="typcn typcn-eye"></i> Xem chi tiết
+                                </a>
                                 <a class="btn btn-facebook waves-effect waves-light btn-xs"
                                    href="{{ route('edit-cate',$list->id) }}">
                                     <i class="typcn typcn-edit"></i> Sửa

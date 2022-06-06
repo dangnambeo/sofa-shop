@@ -75,7 +75,7 @@
                             <div class="box-products">
                                 <h5><a href="{{ route('viewproducts',$list->id) }}">{{ $list->name }}</a></h5>
                                 <div class="price">
-                                    @if(($list->discount_id)==Null)
+                                    @if(($list->discount ->percent)==0)
                                         <span class="price-new">{{ number_format($list ->price) }} đ</span>
                                     @else
                                         <div class="discount-price">

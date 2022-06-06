@@ -196,9 +196,7 @@
 
     <!-- ========= Left Sidebar Start ========== -->
     <div class="left-side-menu">
-
         <div class="slimscroll-menu">
-
             <!--- Sidemenu -->
             <div id="sidebar-menu">
 
@@ -235,7 +233,7 @@
                     </li>
                     <li>
                         <a href="{{ route('bill-list') }}" class="waves-effect waves-light">
-                            <i class="  mdi mdi-sale"></i>
+                            <i class="ion ion-md-appstore"></i>
                             <span> Quản Lý Đơn hàng</span>
                         </a>
                     </li>

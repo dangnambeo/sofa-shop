@@ -105,7 +105,8 @@ class pageController extends Controller
                 $order ->save();
             }
         }
-        dd('ok');
-        //return redirect(route('index'));
+        //dd('ok');
+        alert()->toast('Xóa sản phẩm thành công', 'error')->persistent(false)->autoClose(1200);
+        return redirect(route('index'));
     }
 }

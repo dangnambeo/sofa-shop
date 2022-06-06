@@ -11,4 +11,7 @@ class orders extends Model
     public function bill(){
         return $this->belongsTo(bill::class,'id');
     }
+    public function product(){
+        return $this->belongsTo(products::class,'id');
+    }
 }

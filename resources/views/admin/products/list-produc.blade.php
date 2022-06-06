@@ -34,7 +34,7 @@
                     @foreach ($sp as $list)
                         <tr>
                             <td style="text-align: center; line-height: 4">{{ $i }}</td>
-                            <td style="text-align: center; line-height: 4">{{ $list ->name}}</td>
+                            <td style="line-height: 4">{{ $list ->name}}</td>
                             <td style="text-align: center">
                                 <img class="rounded" alt="64x64" src="{{ asset($list->img) }}"
                                      style="width: 100px; height: 66px;">

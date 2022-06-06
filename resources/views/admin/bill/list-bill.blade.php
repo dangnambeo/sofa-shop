@@ -17,6 +17,7 @@
                     <tr align="center">
                         <th style="text-align: center">STT</th>
                         <th style="text-align: center">Mã đơn hàng</th>
+                        <th style="text-align: center">Trạng thái đơn hàng</th>
                         <th style="text-align: center">
                             Hành động
                         </th>
@@ -28,6 +29,19 @@
                         <tr>
                             <td style="text-align: center">{{ $i }}</td>
                             <td style="text-align: center"># {{ $list->id }}</td>
+                            <td style="text-align: center">
+                                @if(($list->status)==0)
+                                    <label class="badge badge-danger">
+                                        Chưa xác nhận
+                                    </label>
+                                @elseif(($list->status)==1)
+                                <label class="badge badge-success">
+                                    Xác nhận đơn hàng
+                                </label>
+                                @else
+
+                                @endif
+                            </td>
                             <td style="text-align: center">
                                 <a class="btn btn-success waves-effect waves-light btn-xs"
                                    href="{{ route('order-list',$list->id) }}">

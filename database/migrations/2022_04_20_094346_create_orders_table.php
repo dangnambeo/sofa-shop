@@ -19,7 +19,6 @@ class CreateOrdersTable extends Migration
             $table->integer('bill_id');
             $table->integer('number');
             $table->integer('price');
-            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }

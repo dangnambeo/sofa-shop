@@ -41,6 +41,8 @@ Route::group(['middleware' => 'auth'],function (){
         Route::group(['prefix' => 'cate'],function (){
             //Danh sách chuyên mục
             Route::get('/','categoryController@ListCate')->name('list-cate');
+
+            Route::get('/danhmuc/{id}','categoryController@listProductCate')->name('cate-product-list');
             //Thêm mới
             Route::post('/postAdd-cate','categoryController@postAddCate')->name('post-add-cate');
             //Sửa

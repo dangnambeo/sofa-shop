@@ -33,10 +33,10 @@
                     @foreach ($user as $list)
                         <tr>
                             <td style="text-align: center">{{ $i }}</td>
-                            <td style="text-align: center">{{ $list->full_name }}</td>
-                            <td style="text-align: center">{{ $list->user_name }}</td>
+                            <td>{{ $list->full_name }}</td>
+                            <td>{{ $list->user_name }}</td>
                             <td style="text-align: center">{{ $list->phone }}</td>
-                            <td style="text-align: center">
+                            <td>
                                 @if ($list->role_id == 1)
                                     {{ 'Nhân viên' }}
 

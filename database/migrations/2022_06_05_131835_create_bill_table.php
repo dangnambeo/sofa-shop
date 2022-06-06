@@ -17,6 +17,9 @@ class CreateBillTable extends Migration
             $table->increments('id');
             $table->integer('customer_id');
             $table->integer('total');
+            $table->integer('status')->nullable();
+            $table->integer('user_id')->nullable();
+            $table->string('note',250)->nullable();
             $table->timestamps();
         });
     }
