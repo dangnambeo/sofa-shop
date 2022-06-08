@@ -151,10 +151,9 @@ div.header-section .search {
 }
 /*Banner*/
 .banner{
-  width: 1920px;
-  height: 400px;
-  margin: 0 auto;
-  padding: 0;
+    width: 1370px;
+    margin: 0 auto;
+    padding: 0;
 }
 .banner .carousel-inner .carousel-item img{
     width: 100%;

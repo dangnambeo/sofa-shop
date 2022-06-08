@@ -238,6 +238,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ route('list-new') }}" class="waves-effect waves-light">
+                            <i class="fas fa-newspaper"></i>
+                            <span> Quản Lý tin tức</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('slide') }}" class="waves-effect waves-light">
                             <i class="ion ion-md-albums"></i>
                             <span> Quản Lý Slide</span>

@@ -79,6 +79,17 @@ Route::group(['middleware' => 'auth'],function (){
 
             Route::get('/don-hang/{id}','BillController@listOrder')->name('order-list');
         });
+        Route::group(['prefix' => 'news'],function (){
+           Route::get('/','newsController@listNew')->name('list-new');
+
+           Route::get('/them-tin','newsController@getAddNew')->name('get-add-new');
+           Route::post('/post-them-tin','newsController@postAddNew')->name('post-add-new');
+
+            Route::get('/sua-tin/{id}','newsController@getEditNew')->name('get-edit-new');
+            Route::post('/post-sua-tin/{id}','newsController@postEditNew')->name('post-edit-new');
+
+            Route::get('/xoa-tin','newsController@delNew')->name('del-new');
+        });
         Route::group(['prefix' => 'slide'],function (){
             Route::get('/','slideController@listSlide')->name('slide');
 
@@ -94,7 +105,7 @@ Route::group(['middleware' => 'auth'],function (){
 });
 
 //Route::group(['prefix' => '/'],function (){
-   Route::get('/Trangchu','pageController@Index')->name('index');
+   Route::get('/','pageController@Index')->name('index');
    Route::get('/gheSofa','pageController@viewall')->name('viewall');
 
    Route::get('/danhmuc/{id}','pageController@viewpage')->name('viewpage');
