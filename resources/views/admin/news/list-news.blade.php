@@ -32,8 +32,11 @@
                             <td style="text-align: center; line-height: 4">{{ $i }}</td>
                             <td style="line-height: 4">{{ $list ->title}}</td>
                             <td style="text-align: center">
-                                <img class="rounded" alt="64x64" src="{{ asset($list->img) }}"
-                                     style="width: 100px; height: 66px;">
+                                @if(($list->img)==null)
+                                    <img class="icon-colored" src="{{ asset('admin_asset/images/icons/picture.svg') }}" title="picture.svg" alt="colored-icons">
+                                @else
+                                    <img class="rounded" alt="64x64" src="{{ asset($list->img) }}" style="width: 100px; height: 66px;">
+                                @endif
                             </td>
 
                             <td style="text-align: center; line-height: 4">

@@ -456,7 +456,57 @@ td span.del {
 .total-order p span.red-text{
     color: #487eb0;
     font-size: 15px;
+}
+.new{
+    background: #f9f9f9;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.new h2{
+    font-size: 22px;
+    color: #a29bfe;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: solid 2px #b2bec3;
+    padding-bottom: 10px;
+}
+.new .row .item-new .box {
+    width: 600px;
+    border-radius: 5px;
+    border: solid 2px #c7ecee;
+    margin: 10px;
+}
+.new .row .item-new .box a .img-news{
+    border-radius: 5px 5px 0 0 ;
+}
+.new .row .item-new .box .box-products{
+    padding: 10px;
+}
+.new .row .item-new .box .box-products h5 a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #666;
+    font-size: 20px;
+}
+.new .row .item-new .box .box-products h5 a:hover{
 
+}
+.new .row .item-new .box .box-products .summary{
+    text-align: justify;
+}
+.new .row .item-new .box .box-products .read-blog{
+    text-align: center;
+}
+.new .row .item-new .box .box-products .read-blog a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #a29bfe;
+    font-size: 20px;
+}
+.new .row .item-new .box .box-products .read-blog a:hover{
+    color: #3498db;
 }
 /* footer */
 .footer{

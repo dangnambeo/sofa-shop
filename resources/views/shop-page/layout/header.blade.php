@@ -14,6 +14,9 @@
                             <a href="{{ route('viewpage',$list->id) }}" class="item-link">{{ $list -> cate_tittle }}</a>
                         </li>
                     @endforeach
+                    <li class="menu-item">
+                        <a href="{{ route('blog') }}" class="item-link">BLOG</a>
+                    </li>
                 </ul>
             </div>
         </div>

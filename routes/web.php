@@ -42,7 +42,7 @@ Route::group(['middleware' => 'auth'],function (){
             //Danh sách chuyên mục
             Route::get('/','categoryController@ListCate')->name('list-cate');
 
-            Route::get('/danhmuc/{id}','categoryController@listProductCate')->name('cate-product-list');
+            Route::get('/danhmuc    /{id}','categoryController@listProductCate')->name('cate-product-list');
             //Thêm mới
             Route::post('/postAdd-cate','categoryController@postAddCate')->name('post-add-cate');
             //Sửa
@@ -111,6 +111,10 @@ Route::group(['middleware' => 'auth'],function (){
    Route::get('/danhmuc/{id}','pageController@viewpage')->name('viewpage');
 
    Route::get('/sanpham/{id}','pageController@viewproducts')->name('viewproducts');
+
+   Route::get('/blog','pageController@viewlistNew')->name('blog');
+
+   Route::get('/read-blog/{id}','pageController@readNew')->name('new-read');
 
    Route::get('/Add-Cart/{id}','pageController@addCart')->name('addCart');
    Route::get('/Del-Item-Cart/{id}','pageController@delCart')->name('delCart');

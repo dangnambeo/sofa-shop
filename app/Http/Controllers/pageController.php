@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\bill;
 use App\category;
 use App\custormer;
+use App\news;
 use App\orders;
 use App\products;
 use App\cart;
@@ -31,7 +32,14 @@ class pageController extends Controller
         $sp_other = products::orderBy('id','desc')->paginate(6);
         return view('shop-page.viewproducts',compact('sp_page','sp_other'));
     }
-
+    public function viewlistNew(){
+        $news = news::whereNotNull('img')->orderBy('id','desc')->paginate(4);
+        return view('shop-page.view-list-new',compact('news'));
+    }
+    public function readNew($id){
+        $new = news::find($id);
+        return view('shop-page.read-new',compact('new'));
+    }
     public function addCart(Request $request, $id){
         $product = products::where('id',$id)->first();
         if ($product != null){
