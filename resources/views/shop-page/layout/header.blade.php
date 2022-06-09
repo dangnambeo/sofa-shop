@@ -21,12 +21,13 @@
             </div>
         </div>
         <div class="search col-md-2">
-            <form action="">
+            <form action="{{ route('producr-search') }}" method="Get">
                 <input
                     class="form-control"
                     type="text"
                     placeholder="Tìm kiếm..."
                     aria-label="Search"
+                    name="key"
                 />
                 <button class="search-button fas fa-search" type="submit"></button>
             </form>

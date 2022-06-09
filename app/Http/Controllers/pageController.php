@@ -40,6 +40,20 @@ class pageController extends Controller
         $new = news::find($id);
         return view('shop-page.read-new',compact('new'));
     }
+    public function searchProducr(Request $request){
+       // $search_sp = $_GET['query'];
+
+        //$name =  products::select('name')->get()->pluck('name');
+        $sp_all = products::where('name','like','%'.$request->key.'%')->paginate(12);
+        return view('shop-page.viewall',compact('sp_all'));
+//        if ($request -> filled('name')){
+//            $sp_all -> where('name','like','%'.$request->name.'%');
+//        }
+//        return view('shop-page.viewall',
+//            ['name' => $name],
+//            ['sp_all' => $sp_all -> get()]
+//        );
+    }
     public function addCart(Request $request, $id){
         $product = products::where('id',$id)->first();
         if ($product != null){

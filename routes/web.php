@@ -110,6 +110,8 @@ Route::group(['middleware' => 'auth'],function (){
 
    Route::get('/danhmuc/{id}','pageController@viewpage')->name('viewpage');
 
+   Route::get('/Search_sp','pageController@searchProducr')->name('producr-search');
+
    Route::get('/sanpham/{id}','pageController@viewproducts')->name('viewproducts');
 
    Route::get('/blog','pageController@viewlistNew')->name('blog');
