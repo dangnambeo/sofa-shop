@@ -60,9 +60,11 @@
             </div>
         @endif
     </div>
-    <div class="col-lg-4 offset-lg-8">
-        <div class="buton-buy">
-            <a href="{{ route('delivery') }}">Tiến hành đặt hàng <i class="fa-solid fa-angle-right"></i></a>
+    @if(Session::has("Cart") != null)
+        <div class="col-lg-4 offset-lg-8">
+            <div class="buton-buy">
+                <a href="{{ route('delivery') }}">Tiến hành đặt hàng <i class="fa-solid fa-angle-right"></i></a>
+            </div>
         </div>
-    </div>
+    @endif
 </div>
