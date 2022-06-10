@@ -24,6 +24,9 @@ Route::get('/logout','userController@getLogout')->name('logout');
 
 Route::group(['middleware' => 'auth'],function (){
     Route::group(['prefix' => 'admin'],function (){
+
+        Route::get('/dashboard','dashboardController@dashboard')->name('dashboard');
+
         //Quản lý người dùng
         Route::group(['prefix' => 'staff'],function (){
             //Danh sách nhân viên

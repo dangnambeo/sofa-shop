@@ -87,7 +87,7 @@ class userController extends Controller
     public function getLogin()
     {
         if (Auth::guard()->check()) {
-            return redirect(\route('list-produc'));
+            return redirect(\route('dashboard'));
         } else {
             return view('admin.login');
         }
@@ -99,7 +99,7 @@ class userController extends Controller
 
         if (Auth::attempt(['user_name'=>$user_name,'password'=>$password])){
             alert()->toast('Đăng nhập thành công', 'success')->persistent(false)->autoClose(1200);
-            return redirect(route('list-produc'));
+            return redirect(route('dashboard'));
         } else{
             alert()->toast('Bạn đã nhập sai tên đăng nhập hoặc mật khẩu', 'error')->persistent(false)->autoClose(5000);
             return back();

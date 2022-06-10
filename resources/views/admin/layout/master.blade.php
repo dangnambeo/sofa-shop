@@ -202,7 +202,7 @@
 
                 <ul class="metismenu" id="side-menu">
                     <li>
-                        <a href="#" class="waves-effect waves-light">
+                        <a href="{{ route('dashboard') }}" class="waves-effect waves-light">
                             <i class="fas fa-home"></i>
                             <span> Trang chủ </span>
                         </a>
