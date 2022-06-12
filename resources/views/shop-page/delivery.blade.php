@@ -64,6 +64,7 @@
                                     <span>Thành tiền</span>
                                     <span class="red-text">{{ number_format(Session::get("Cart")->totalPrice) }}  đ</span>
                                 </p>
+                                <input name="status" type="text" value="0" hidden>
                             </div>
                         @endif
                     </div>

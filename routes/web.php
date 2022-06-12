@@ -91,7 +91,7 @@ Route::group(['middleware' => 'auth'],function (){
             Route::get('/sua-tin/{id}','newsController@getEditNew')->name('get-edit-new');
             Route::post('/post-sua-tin/{id}','newsController@postEditNew')->name('post-edit-new');
 
-            Route::get('/xoa-tin','newsController@delNew')->name('del-new');
+            Route::get('/xoa-tin/{id}','newsController@delNew')->name('del-new');
         });
         Route::group(['prefix' => 'slide'],function (){
             Route::get('/','slideController@listSlide')->name('slide');

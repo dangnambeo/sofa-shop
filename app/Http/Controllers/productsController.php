@@ -3,12 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\products;
+use App\orders;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class productsController extends Controller
 {
     public function ListProduc(){
-        $sp = products::all();
+    //    $sp = products::all();
+        $sp = products::leftjoin('orders','orders.product_id','=','products.id')
+            ->groupBy('products.id','products.name','products.img','products.cate_id','products.quantity','products.price','products.description','products.discount_id')
+            ->select(
+                'products.id as id','products.name as name','products.img as img','products.cate_id as cate_id','products.quantity as quantity','products.price as price','products.description as description',
+                'products.discount_id as discount_id',
+                DB::raw('Sum(orders.number) as sl_ban')
+            )
+            ->get();
         return view('admin.products.list-produc',compact('sp'));
     }
     public function getAddProducts(){

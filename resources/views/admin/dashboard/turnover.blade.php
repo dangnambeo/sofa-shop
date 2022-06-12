@@ -5,14 +5,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
-                <div class="page-title-right">
-                    <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Zircos</a></li>
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard </a></li>
-                        <li class="breadcrumb-item active">Dashboard 2</li>
-                    </ol>
-                </div>
-                <h4 class="page-title">Dashboard 2</h4>
+                <h4 class="page-title">Bảng điều khiển</h4>
             </div>
         </div>
     </div>
@@ -28,7 +21,7 @@
                     </div>
                     <div class="wigdet-one-content">
                         <p class="m-0 text-uppercase font-weight-bold text-muted" title="Statistics">Statistics</p>
-                        <h2><span data-plugin="counterup">34578</span> <i class="mdi mdi-arrow-up text-success font-24"></i></h2>
+                        <h2><span data-plugin="counterup">{{ $sum_order }}</span> <i class="mdi mdi-arrow-up text-success font-24"></i></h2>
                         <p class="text-muted m-0"><span class="font-weight-medium">Last:</span> 30.4k</p>
                     </div>
                 </div>

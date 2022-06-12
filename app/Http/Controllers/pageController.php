@@ -9,13 +9,20 @@ use App\news;
 use App\orders;
 use App\products;
 use App\cart;
+use Illuminate\Support\Facades\DB;
 use Session;
 use Illuminate\Http\Request;
 
 class pageController extends Controller
 {
     public function Index(){
-      $sp_all = products::orderBy('id','desc')->paginate(12);
+      $sp_all = products::leftjoin('orders','orders.product_id','=','products.id')
+          ->groupBy('products.id','products.name','products.img','products.cate_id','products.quantity','products.price','products.description','products.discount_id')
+          ->select(
+              'products.id as id','products.name as name','products.img as img','products.cate_id as cate_id','products.quantity as quantity','products.price as price','products.description as description',
+              'products.discount_id as discount_id',
+              DB::raw('Sum(orders.number) as sl_ban')
+          )->orderBy('id','desc')->paginate(12);
       return view('shop-page.index',compact('sp_all'));
     }
     public function viewall(){
@@ -114,6 +121,7 @@ class pageController extends Controller
 
         $bill = new bill;
         $bill -> customer_id = $customer->id;
+        $bill -> status = $request->status;
         $bill ->total = Session::get("Cart")->totalPrice;
         $bill ->save();
 
@@ -128,7 +136,7 @@ class pageController extends Controller
             }
         }
         //dd('ok');
-        alert()->toast('Xóa sản phẩm thành công', 'error')->persistent(false)->autoClose(1200);
+        alert()->toast('Mua hàng thành công', 'success')->persistent(false)->autoClose(1200);
         return redirect(route('index'));
     }
 }

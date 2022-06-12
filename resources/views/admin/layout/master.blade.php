@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="">
-
+    <link href="{{ asset('admin_asset/libs/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
     <!-- Table datatable css -->
     <link href="{{ asset('admin_asset/libs/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet"
           type="text/css" />
@@ -381,6 +381,17 @@
 
 <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
 <!-- Plugins js -->
+
+<script src="{{ asset('admin_asset/libs/flot-charts/jquery.flot.js') }}"></script>
+<script src="{{ asset('admin_asset/libs/flot-charts/jquery.flot.time.js') }}"></script>
+<script src="{{ asset('admin_asset/libs/flot-charts/jquery.flot.tooltip.min.js') }}"></script>
+<script src="{{ asset('admin_asset/libs/flot-charts/jquery.flot.resize.js') }}"></script>
+<script src="{{ asset('admin_asset/libs/flot-charts/jquery.flot.pie.js') }}"></script>
+<script src="{{ asset('admin_asset/libs/flot-charts/jquery.flot.crosshair.js') }}"></script>
+<script src="{{ asset('admin_asset/libs/flot-charts/jquery.flot.selection.js') }}"></script>
+<script src="{{ asset('admin_asset/libs/moment/moment.min.js') }}"></script>
+<script src="{{ asset('admin_asset/libs/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<script src="{{ asset('admin_asset/js/pages/dashboard_2.init.js') }}"></script>
 @yield('script')
 @include('sweetalert::alert')
 <script>

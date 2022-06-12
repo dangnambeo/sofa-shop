@@ -19,7 +19,8 @@
                         <th style="text-align: center">Tên sản phẩm</th>
                         <th style="text-align: center">Hình ảnh</th>
                         <th style="text-align: center">Giá sản phẩm</th>
-                        <th style="text-align: center">Số lượng ( Bộ )</th>
+                        <th style="text-align: center">Số lượng(Bộ)</th>
+
                         <th style="text-align: center">Danh mục</th>
                         <th style="text-align: center">Ưu đãi</th>
                         <th style="text-align: center">
@@ -40,7 +41,15 @@
                                      style="width: 100px; height: 66px;">
                             </td>
                             <td style="text-align: center; line-height: 4">{{ number_format($list ->price) }} <span>₫</span> </td>
-                            <td style="text-align: center; line-height: 4">{{ $list ->quantity }}</td>
+                            @if((($list ->quantity)-($list->sl_ban))>0)
+                                <td style="text-align: center; line-height: 4">{{ ($list ->quantity)-($list->sl_ban) }}</td>
+                            @else
+                                <td style="text-align: center; line-height: 4">
+                                    <label class="badge badge-danger">
+                                        Hết hàng
+                                    </label>
+                                </td>
+                            @endif
                             <td style="text-align: center; line-height: 4">{{ $list->category->cate_tittle }}</td>
                             <td style="text-align: center; line-height: 4">
                                 @if($list->discount_id != Null)

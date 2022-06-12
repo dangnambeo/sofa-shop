@@ -48,6 +48,7 @@ class userController extends Controller
                 $user->save();
             }
         }
+        alert()->toast('Tạo tài khoản thành công thành công', 'success')->persistent(false)->autoClose(1200);
         return redirect(route('list-user'));
     }
     public function getEditUser($id){

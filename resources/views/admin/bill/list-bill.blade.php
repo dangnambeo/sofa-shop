@@ -31,15 +31,21 @@
                             <td style="text-align: center"># {{ $list->id }}</td>
                             <td style="text-align: center">
                                 @if(($list->status)==0)
-                                    <label class="badge badge-danger">
+                                    <label class="badge badge-warning">
                                         Chưa xác nhận
                                     </label>
                                 @elseif(($list->status)==1)
-                                <label class="badge badge-success">
+                                <label class="badge badge-primary">
                                     Xác nhận đơn hàng
                                 </label>
+                                @elseif(($list->status)==2)
+                                <label class="badge badge-success">
+                                    Giao hàng thành công
+                                </label>
                                 @else
-
+                                    <label class="badge badge-danger">
+                                        Hủy đơn hàng
+                                    </label>
                                 @endif
                             </td>
                             <td style="text-align: center">

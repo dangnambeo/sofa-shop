@@ -47,7 +47,7 @@
                 </div>
                 <div class="form-group">
                     <div class="table-responsive">
-                        <table class="table m-0 table-colored-bordered table-bordered-purple">
+                        <table class="table table-bordered m-0 m-0 table-colored-bordered table-bordered-purple">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -85,7 +85,12 @@
                         </table>
                     </div>
                 </div>
-                <button type="submit" value="Save" class="btn btn-primary">Lưu</button>
+                <div class="hidden-print">
+                    <div class="float-right d-print-none">
+                        <a href="javascript:window.print()" class="btn btn-dark waves-effect waves-light"><i class="fa fa-print"></i></a>
+                        <button type="submit" value="Save" class="btn btn-primary">Lưu</button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
