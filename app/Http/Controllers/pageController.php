@@ -35,9 +35,16 @@ class pageController extends Controller
         return view('shop-page.view-page',compact('sp_cate','cate_page'));
     }
     public function viewproducts($id){
-        $sp_page = products::find($id);
+        $sp_page = products::leftjoin('orders','orders.product_id','=','products.id')
+            ->groupBy('products.id','products.name','products.img','products.cate_id','products.quantity','products.price','products.description','products.discount_id')
+            ->select(
+                'products.id as id','products.name as name','products.img as img','products.cate_id as cate_id','products.quantity as quantity','products.price as price','products.description as description',
+                'products.discount_id as discount_id',
+                DB::raw('Sum(orders.number) as sl_ban')
+            )->find($id);
         $sp_other = products::orderBy('id','desc')->paginate(6);
-        return view('shop-page.viewproducts',compact('sp_page','sp_other'));
+        //dd($price_sp);
+       return view('shop-page.viewproducts',compact('sp_page','sp_other'));
     }
     public function viewlistNew(){
         $news = news::whereNotNull('img')->orderBy('id','desc')->paginate(4);

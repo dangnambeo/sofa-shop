@@ -32,11 +32,19 @@
                         @endif
                     </div>
                     <div class="cart-produc">
-                        <div class="purchase-cart">
-                            <a onclick="AddCart({{ $sp_page->id }})" href="javascript:" class="add_to_cart">
-                                Thêm vào giỏ hàng
-                            </a>
-                        </div>
+                        @if((($sp_page ->quantity)-($sp_page->sl_ban))>0)
+                            <div class="purchase-cart">
+                                <a onclick="AddCart({{ $sp_page->id }})" href="javascript:" class="add_to_cart">
+                                    Thêm vào giỏ hàng
+                                </a>
+                            </div>
+                        @else
+                            <div class="over-product">
+                               <span>
+                                    Hết hàng
+                               </span>
+                            </div>
+                        @endif
                         <div class="purchase-phone">
                             <span class="phone">
                                 Gọi đặt mua:
