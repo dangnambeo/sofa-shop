@@ -64,13 +64,13 @@
                                     @endif
                                 </div>
                                 <div class="cart">
-                                    <a onclick="AddCart({{ $list->id }})" href="javascript:" class="add_to_cart">
+                                    <button onclick="AddCart({{ $list->id }})" class="add_to_cart">
                                         <lord-icon
                                                 src="https://cdn.lordicon.com/rmzhcgbh.json"
                                                 trigger="hover"
                                                 style="width:40px;height:40px">
                                         </lord-icon>
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>

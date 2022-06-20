@@ -67,7 +67,8 @@ div.header-section .search {
 }
 .login-admin{
     text-align: center;
-}.cart{
+}
+.cart{
     position: relative;
  }
 .cart .total-quanty{
@@ -221,14 +222,12 @@ div.header-section .search {
   }
 .products .row .item .box{
       width: 18rem;
-    height: 450px;
       border-radius: 5px;
       border: solid 2px #c7ecee;
       margin: 10px;
   }
   .products .row .col-md-4 .box{
     width: 22rem;
-      height: 500px;
     border-radius: 5px;
     border: solid 2px #c7ecee;
     margin: 10px;
@@ -264,7 +263,6 @@ div.header-section .search {
 }
 .box-products .cart{
       text-align: end;
-      display: none;
   }
 .products .row .item .box:hover .box-products .cart, .products .row .col-md-4 .box:hover .box-products .cart{
       display: block;
