@@ -82,8 +82,11 @@ div.header-section .search {
 .cart:hover .cart-sp{
     display: block;
 }
-.cart a{
-    text-decoration: none;
+.cart button{
+    border: solid 1px #ff7675;
+    background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+    width: 30%;
+    border-radius: 10px;
 }
 .cart-sp{
     width: 500px;
@@ -241,6 +244,9 @@ div.header-section .search {
   .products .row .item .box .box-products, .products .row .col-md-4 .box .box-products{
       padding: 10px;
   }
+.products .row .item .box .box-products .main-product{
+    height: 135px;
+}
   .box-products h5 a{
     text-decoration: none;
     font-weight: bold;
@@ -262,7 +268,7 @@ div.header-section .search {
     font-size: 20px;
 }
 .box-products .cart{
-      text-align: end;
+      text-align: center;
   }
 .products .row .item .box:hover .box-products .cart, .products .row .col-md-4 .box:hover .box-products .cart{
       display: block;
