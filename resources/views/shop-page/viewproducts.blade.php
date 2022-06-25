@@ -81,25 +81,27 @@
                                 <img src="{{ asset($list->img) }}" class="img-products" alt="" srcset="">
                             </a>
                             <div class="box-products">
-                                <h5><a href="{{ route('viewproducts',$list->id) }}">{{ $list->name }}</a></h5>
-                                <div class="price">
-                                    @if(($list->discount ->percent)==0)
-                                        <span class="price-new">{{ number_format($list ->price) }} đ</span>
-                                    @else
-                                        <div class="discount-price">
-                                            <span class="price-old">{{ number_format($list ->price) }} đ</span>
-                                        </div>
-                                        <span class="price-new">{{ number_format(($list ->price)-(($list->price)*($list->discount ->percent)/100)) }} đ</span>
-                                    @endif
+                                <div class="main-product">
+                                    <h5><a href="{{ route('viewproducts',$list->id) }}">{{ $list->name }}</a></h5>
+                                    <div class="price">
+                                        @if(($list->discount ->percent)==0)
+                                            <span class="price-new">{{ number_format($list ->price) }} đ</span>
+                                        @else
+                                            <div class="discount-price">
+                                                <span class="price-old">{{ number_format($list ->price) }} đ</span>
+                                            </div>
+                                            <span class="price-new">{{ number_format(($list ->price)-(($list->price)*($list->discount ->percent)/100)) }} đ</span>
+                                        @endif
+                                    </div>
                                 </div>
                                 <div class="cart">
-                                    <a onclick="AddCart({{ $list->id }})" href="javascript:" class="add_to_cart">
+                                    <button type="submit" onclick="AddCart({{ $list->id }})" class="add_to_cart">
                                         <lord-icon
                                             src="https://cdn.lordicon.com/rmzhcgbh.json"
                                             trigger="hover"
                                             style="width:40px;height:40px">
                                         </lord-icon>
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>

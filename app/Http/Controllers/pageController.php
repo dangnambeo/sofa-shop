@@ -42,7 +42,7 @@ class pageController extends Controller
                 'products.discount_id as discount_id',
                 DB::raw('Sum(orders.number) as sl_ban')
             )->find($id);
-        $sp_other = products::orderBy('id','desc')->paginate(6);
+        $sp_other = products::all()->random()->paginate(6);
         //dd($price_sp);
        return view('shop-page.viewproducts',compact('sp_page','sp_other'));
     }
