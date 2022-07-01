@@ -10,7 +10,7 @@
     <!-- end page title -->
     <div class="card mb-4">
         <div class="card-body" style="margin: 20px">
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('edit-bill',$bill->id) }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <div class="row">

@@ -81,6 +81,8 @@ Route::group(['middleware' => 'auth'],function (){
             Route::get('/','BillController@listBill')->name('bill-list');
 
             Route::get('/don-hang/{id}','BillController@listOrder')->name('order-list');
+
+            Route::post('/edit-bill/{id}','BillController@EditBill')->name('edit-bill');
         });
         Route::group(['prefix' => 'news'],function (){
            Route::get('/','newsController@listNew')->name('list-new');

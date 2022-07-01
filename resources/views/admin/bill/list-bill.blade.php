@@ -53,11 +53,6 @@
                                    href="{{ route('order-list',$list->id) }}">
                                     <i class="typcn typcn-eye"></i> Xem chi tiết
                                 </a>
-                                <a class="btn btn-pinterest waves-effect waves-light btn-xs delete"
-                                   href="#"
-                                   data-confirm="Bạn có muốn xóa chuyên mục, các sản phẩm liên quan cũng sẽ bị xóa theo">
-                                    <i class=" typcn typcn-times"></i> Xóa
-                                </a>
                             </td>
                         </tr>
                         <?php $i++; ?>

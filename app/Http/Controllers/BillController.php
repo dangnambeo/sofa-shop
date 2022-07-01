@@ -23,4 +23,11 @@ class BillController extends Controller
             ->select('sp.name AS name_sp','orders.price AS price_sp','orders.number as sl','sale.percent as sale')->get();
         return view('admin.bill.list-order',compact('bill','order'));
     }
+    public function EditBill(Request $request,$id){
+        $bill =  bill::find($id);
+        $bill ->status = $request->status;
+        $bill->save();
+        alert()->toast('Trạng thái đơn hàng cập nhật thành công', 'success')->persistent(false)->autoClose(1200);
+        return back();
+    }
 }
