@@ -28,6 +28,6 @@ class BillController extends Controller
         $bill ->status = $request->status;
         $bill->save();
         alert()->toast('Trạng thái đơn hàng cập nhật thành công', 'success')->persistent(false)->autoClose(1200);
-        return back();
+        return redirect(route('bill-list'));
     }
 }
