@@ -17,11 +17,14 @@
             <div class="card widget-box-one border border-primary bg-soft-primary">
                 <div class="card-body">
                     <div class="float-right avatar-lg rounded-circle mt-3">
-                        <i class="mdi mdi-chart-areaspline font-30 widget-icon rounded-circle avatar-title text-primary"></i>
+                        <i class="mdi mdi-currency-usd float-right font-30 widget-icon rounded-circle avatar-title text-primary"></i>
                     </div>
                     <div class="wigdet-one-content">
-                        <p class="m-0 text-uppercase font-weight-bold text-muted" title="Statistics">Đơn hàng đã đặt</p>
-                        <h2><span data-plugin="counterup">{{ $bill->Count('id') }}</span></h2>
+                        <p class="m-0 text-uppercase font-weight-bold text-muted" title="Statistics">Doanh thu</p>
+                        <h2>
+                            <span data-plugin="counterup">{{ number_format($bill->where('status',2)->sum('total')) }}</span>
+                            <span>VNĐ</span>
+                        </h2>
                     </div>
                 </div>
             </div>
@@ -35,8 +38,8 @@
                         <i class="mdi mdi-layers font-30 widget-icon rounded-circle avatar-title text-warning"></i>
                     </div>
                     <div class="wigdet-one-content">
-                        <p class="m-0 text-uppercase font-weight-bold text-muted" title="User This Month">Đơn hàng trong ngày</p>
-                        <h2><span data-plugin="counterup">{{ $bill_day->count('id') }} </span></h2>
+                        <p class="m-0 text-uppercase font-weight-bold text-muted" title="User This Month">Đơn hàng đã đặt</p>
+                        <h2><span data-plugin="counterup">{{ $bill->Count('id') }} </span></h2>
 
                     </div>
                 </div>
@@ -77,118 +80,72 @@
         <!-- end col -->
     </div>
     <div class="row">
-
-        <div class="col-lg-4">
+        <div class="col-sm-4">
             <div class="card-box">
-                <h4 class="header-title mb-4">Messages</h4>
+                <h4 class="header-title mb-4">Đơn hàng cần xác nhận</h4>
 
-                <div class="inbox-widget slimscroll" style="max-height: 360px;">
-                    <a href="#">
-                        <div class="inbox-item">
-                            <div class="inbox-item-img"><img src="assets/images/users/avatar-1.jpg" class="rounded-circle" alt=""></div>
-                            <p class="inbox-item-author">Chadengle</p>
-                            <p class="inbox-item-text font-12">Hey! there I'm available...</p>
-                            <p class="inbox-item-date">13:40 PM</p>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="inbox-item">
-                            <div class="inbox-item-img"><img src="assets/images/users/avatar-2.jpg" class="rounded-circle" alt=""></div>
-                            <p class="inbox-item-author">Tomaslau</p>
-                            <p class="inbox-item-text font-12">I've finished it! See you so...</p>
-                            <p class="inbox-item-date">13:34 PM</p>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="inbox-item">
-                            <div class="inbox-item-img"><img src="assets/images/users/avatar-3.jpg" class="rounded-circle" alt=""></div>
-                            <p class="inbox-item-author">Stillnotdavid</p>
-                            <p class="inbox-item-text font-12">This theme is awesome!</p>
-                            <p class="inbox-item-date">13:17 PM</p>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="inbox-item">
-                            <div class="inbox-item-img"><img src="assets/images/users/avatar-4.jpg" class="rounded-circle" alt=""></div>
-                            <p class="inbox-item-author">Kurafire</p>
-                            <p class="inbox-item-text font-12">Nice to meet you</p>
-                            <p class="inbox-item-date">12:20 PM</p>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="inbox-item">
-                            <div class="inbox-item-img"><img src="assets/images/users/avatar-5.jpg" class="rounded-circle" alt=""></div>
-                            <p class="inbox-item-author">Shahedk</p>
-                            <p class="inbox-item-text font-12">Hey! there I'm available...</p>
-                            <p class="inbox-item-date">10:15 AM</p>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="inbox-item">
-                            <div class="inbox-item-img"><img src="assets/images/users/avatar-6.jpg" class="rounded-circle" alt=""></div>
-                            <p class="inbox-item-author">Adhamdannaway</p>
-                            <p class="inbox-item-text font-12">This theme is awesome!</p>
-                            <p class="inbox-item-date">9:56 AM</p>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="inbox-item">
-                            <div class="inbox-item-img"><img src="assets/images/users/avatar-8.jpg" class="rounded-circle" alt=""></div>
-                            <p class="inbox-item-author">Arashasghari</p>
-                            <p class="inbox-item-text font-12">Hey! there I'm available...</p>
-                            <p class="inbox-item-date">10:15 AM</p>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="inbox-item">
-                            <div class="inbox-item-img"><img src="assets/images/users/avatar-9.jpg" class="rounded-circle" alt=""></div>
-                            <p class="inbox-item-author">Joshaustin</p>
-                            <p class="inbox-item-text font-12">I've finished it! See you so...</p>
-                            <p class="inbox-item-date">9:56 AM</p>
-                        </div>
-                    </a>
-                </div>
-
+                <table class="table table-centered mb-0">
+                    <thead class="thead-light">
+                    <tr>
+                        <th>Mã đơn hàng</th>
+                        <th>Ngày đặt hàng</th>
+                        <th>Hành động</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($bill->where('status',0) as $submit_bill)
+                        <tr>
+                            <td>{{ $submit_bill->id }}</td>
+                            <td>
+                                <h5 class="mt-0 mb-1 font-15">Tổng tiền: {{ number_format($submit_bill->total) }} đ</h5>
+                                <p class="font-13 mb-0">Ngày đặt: {{ $submit_bill->created_at->format('d/m/Y h:m') }}</p>
+                            </td>
+                            <td class="text-right">
+                                <a href="{{ route('order-list',$submit_bill->id) }}" class="btn btn-sm btn-bordered-success waves-effect waves-light btn-success">Xem</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
-            <!-- end card -->
         </div>
         <!-- end col -->
-
-        <div class="col-lg-8">
+        <div class="col-sm-8">
             <div class="card-box">
-                <h4 class="header-title mb-4">Sản phẩm bán chạy</h4>
-
+                <h4 class="header-title mb-4">Top 5 Sản phẩm bán chạy</h4>
                 <div class="table-responsive">
-                    <table class="table table table-hover m-0">
-                        <thead>
+                    <table class="table table-centered m-0">
+                        <thead class="thead-light">
                         <tr>
-                            <th>Mã sản phẩm</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Sô lượng</th>
-                            <th>Giá bán</th>
+                            <th>Hình ảnh</th>
+                            <th>Tên Sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Giá tiền</th>
+                            <th>Trạng thái</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($sp_bill as $list)
-                        <tr>
-                                <th>
-                                    {{ $list->id }}
-                                </th>
-                                <td>{{ $list ->name}}</td>
-                                <td>{{ ($list ->quantity)-($list->sl_ban) }}</td>
-                                <td>{{ number_format($list ->price) }} <span>₫</span> </td>
-                        </tr>
+                            <tr>
+                                <td>
+                                    <a href="{{ route('products-edit',$list->id) }}"> <img class="rounded" alt="" src="{{ asset($list->img) }}" style="width: 100px; height: 66px;"> </a>
+                                </td>
+                                <td><a href="{{ route('products-edit',$list->id) }}">{{ $list ->name}}</a></td>
+                                <td style="text-align: center">{{ ($list ->quantity)-($list->sl_ban) }}</td>
+                                <td>{{ number_format($list ->price) }} đ</td>
+                                @if((($list ->quantity)-($list->sl_ban))>0)
+                                    <td><span class="badge badge-success">Còn hàng</span></td>
+                                @else
+                                    <td><span class="badge badge-danger">Hết hàng</span></td>
+                                @endif
+
+                            </tr>
                         @endforeach
                         </tbody>
                     </table>
-
                 </div>
-                <!-- table-responsive -->
             </div>
-            <!-- end card -->
         </div>
-        <!-- end col -->
-
     </div>
     <!-- end row -->
 @endsection
