@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class dashboardController extends Controller
 {
     public function dashboard(){
-        $bill= bill::all();
+        $bill= bill::orderBy('created_at','desc')->get();
         $bill_day=bill::whereDay('created_at', Carbon::now()->day)->get();
         $bill_month=bill::whereMonth('created_at', Carbon::now()->month)->get();
         $sp_bill = products::leftjoin('orders','orders.product_id','=','products.id')

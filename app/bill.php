@@ -14,4 +14,7 @@ class bill extends Model
     public function customer(){
         return $this->hasOne(custormer::class,'id');
     }
+    public function user(){
+        return $this -> belongsTo(User::class,'user_id');
+    }
 }

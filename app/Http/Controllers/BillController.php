@@ -26,8 +26,9 @@ class BillController extends Controller
     public function EditBill(Request $request,$id){
         $bill =  bill::find($id);
         $bill ->status = $request->status;
+        $bill ->user_id = $request->user_id;
         $bill->save();
-        alert()->toast('Trạng thái đơn hàng cập nhật thành công', 'success')->persistent(false)->autoClose(1200);
+        alert()->toast('Thông tin đơn hàng cập nhật thành công', 'success')->persistent(false)->autoClose(1200);
         return redirect(route('bill-list'));
     }
 }

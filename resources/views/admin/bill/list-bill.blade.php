@@ -17,6 +17,7 @@
                     <tr align="center">
                         <th style="text-align: center">STT</th>
                         <th style="text-align: center">Mã đơn hàng</th>
+
                         <th style="text-align: center">Trạng thái đơn hàng</th>
                         <th style="text-align: center">
                             Hành động

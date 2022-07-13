@@ -32,7 +32,7 @@
                     <div class="row">
                         <div class="col-md-8">
                             <label for="address">Địa chỉ giao hàng:</label>
-                            <input name="address" class="form-control" id="address" type="text" value="{{ $bill->customer->address }}" >
+                            <textarea name="address" class="form-control" id="address" cols="30" rows="2">{{ $bill->customer->address }}</textarea>
                         </div>
                         <div class="col-md-4">
                             <label for="status">Trạng thái đơn hàng:</label>
@@ -42,6 +42,10 @@
                                 <option {{ $bill->status == 2 ? ' selected' : '' }} value="2">Giao hàng thành công</option>
                                 <option {{ $bill->status == 3 ? ' selected' : '' }} value="3">Hủy đơn hàng</option>
                             </select>
+                        </div>
+                        <div class="col-md-3" hidden>
+                            <label for="user_id">Nhân viên phụ trách:</label>
+                            <input name="user_id" class="form-control" id="user_id" type="text" value="{{ Auth::user()->id }}" >
                         </div>
                     </div>
                 </div>
