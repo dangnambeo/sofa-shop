@@ -10,7 +10,8 @@ use App\orders;
 use App\products;
 use App\cart;
 use Illuminate\Support\Facades\DB;
-use Session;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class pageController extends Controller
@@ -142,6 +143,11 @@ class pageController extends Controller
                 $order ->save();
             }
         }
+        $data = $request->all();
+        $emails= $data['emails']??'';
+
+        Mail::to($emails)->send(new \App\Mail\SendMail(['emails'=>$emails]));
+        Session::flash('flash_message','Send message successfully');
         //dd('ok');
         alert()->toast('Mua hàng thành công', 'success')->persistent(false)->autoClose(1200);
         return redirect(route('index'));

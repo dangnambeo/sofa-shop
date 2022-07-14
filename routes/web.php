@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/gui', function () {
+    return view('shop-page.mail.resign-mail');
 });
 
 Route::get('/login','userController@getLogin')->name('login');
@@ -133,4 +133,5 @@ Route::group(['middleware' => 'auth'],function (){
    Route::get('/giao-hang','pageController@Delivery')->name('delivery');
    Route::post('/Dat-hang','pageController@postOrder')->name('order-post');
 
+   Route::post('/resign-email','SendMailController@sendMail')->name('send-mail');
 //});

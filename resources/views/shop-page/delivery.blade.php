@@ -23,6 +23,10 @@
                             <input name="phone" type="text" class="form-control" id="exampleFormControlInput1">
                         </div>
                         <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Email</label>
+                            <input type="text" id="exampleFormControlInput1" name="emails" placeholder="Email nhận thông báo gửi mail" class="form-control">
+                        </div>
+                        <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Địa chỉ giao hàng</label>
                             <textarea name="address" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
