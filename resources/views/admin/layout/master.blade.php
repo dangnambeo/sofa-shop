@@ -207,28 +207,30 @@
                             <span> Trang chủ </span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ route('list-user') }}" class="waves-effect waves-light">
-                            <i class="fas fa-user-friends"></i>
-                            <span> Quản Lý Nhân viên</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('list-cate') }}" class="waves-effect waves-light">
-                            <i class="mdi mdi-file-document-box-multiple-outline"></i>
-                            <span> Quản Lý Danh mục</span>
-                        </a>
-                    </li>
+                    @if((Auth::user()->role_id)==0)
+                        <li>
+                            <a href="{{ route('list-user') }}" class="waves-effect waves-light">
+                                <i class="fas fa-user-friends"></i>
+                                <span> Quản Lý Nhân viên</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('list-cate') }}" class="waves-effect waves-light">
+                                <i class="mdi mdi-file-document-box-multiple-outline"></i>
+                                <span> Quản Lý Danh mục</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('listdiscount') }}" class="waves-effect waves-light">
+                                <i class="  mdi mdi-sale"></i>
+                                <span> Quản Lý Ưu đãi</span>
+                            </a>
+                        </li>
+                    @endif
                     <li>
                         <a href="{{ route('list-produc') }}" class="waves-effect waves-light">
                             <i class=" fas fa-box"></i>
                             <span> Quản Lý Sản phẩm</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('listdiscount') }}" class="waves-effect waves-light">
-                            <i class="  mdi mdi-sale"></i>
-                            <span> Quản Lý Ưu đãi</span>
                         </a>
                     </li>
                     <li>

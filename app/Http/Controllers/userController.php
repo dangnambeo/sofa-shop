@@ -11,6 +11,7 @@ class userController extends Controller
 {
     public function listUser(){
         $user = User::all();
+        $this->authorize($user);
         return view('admin.user.list-user',compact('user'));
     }
     public function getAddUser(){
@@ -53,6 +54,7 @@ class userController extends Controller
     }
     public function getEditUser($id){
         $user = User::findOrfail($id);
+        $this->authorize($user);
         return view('admin.user.edit-user',compact('user'));
     }
     public function postEditUser(Request $request, $id){
@@ -83,6 +85,7 @@ class userController extends Controller
     public function DelUser($id){
         $user = User::find($id);
         $user->delete();
+        $this->authorize($user);
         return back();
     }
     public function getLogin()
