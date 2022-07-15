@@ -61,11 +61,6 @@
                                    href="{{ route('products-edit',$list->id) }}">
                                     <i class="typcn typcn-edit"></i> Sửa
                                 </a>
-                                <a class="btn btn-pinterest waves-effect waves-light btn-xs delete"
-                                   href="{{ route('del-products',$list->id) }}"
-                                   data-confirm="Bạn có chắc chán muốn xóa sản phẩm">
-                                    <i class=" typcn typcn-times"></i> Xóa
-                                </a>
                             </td>
                         </tr>
                         <?php $i++; ?>
