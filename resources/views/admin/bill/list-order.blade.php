@@ -3,6 +3,13 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
+                @if(($bill->user_id)!=null)
+                    <div class="page-title-right">
+                        <h6>Nhân viên phụ trách:
+                            <span style="color: #e17055; font-style: italic">{{ $bill->user->full_name }}</span>
+                        </h6>
+                    </div>
+                @endif
                 <h4 class="page-title">Đơn hàng chi tiết </h4>
             </div>
         </div>
@@ -45,7 +52,10 @@
                         </div>
                         <div class="col-md-3" hidden>
                             <label for="user_id">Nhân viên phụ trách:</label>
-                            <input name="user_id" class="form-control" id="user_id" type="text" value="{{ Auth::user()->id }}" >
+                            <input name="user_id" class="form-control" id="user_id" type="text" value="{{ Auth::user()->id }}"
+                                @if(($bill->user_id)!=null)
+                                    disabled
+                                @endif>
                         </div>
                     </div>
                 </div>

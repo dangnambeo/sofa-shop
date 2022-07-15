@@ -124,6 +124,7 @@ class pageController extends Controller
         $customer = new custormer;
         $customer ->customer_name = $request->customer_name;
         $customer ->phone = $request->phone;
+        $customer ->email = $request->email;
         $customer ->address = $request->address;
         $customer->save();
 
@@ -144,9 +145,9 @@ class pageController extends Controller
             }
         }
         $data = $request->all();
-        $emails= $data['emails']??'';
+        $email= $data['email']??'';
 
-        Mail::to($emails)->send(new \App\Mail\SendMail(['emails'=>$emails]));
+        Mail::to($email)->send(new \App\Mail\SendMail(['emails'=>$email]));
         Session::flash('flash_message','Send message successfully');
         //dd('ok');
         alert()->toast('Mua hàng thành công', 'success')->persistent(false)->autoClose(1200);

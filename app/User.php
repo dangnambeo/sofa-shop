@@ -20,7 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'user_name', 'email', 'password',
     ];
-    public function bills(){
+    public function bill(){
         return $this->hasMany(bill::class,'user_id');
     }
 }

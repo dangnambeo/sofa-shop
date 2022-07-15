@@ -24,7 +24,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Email</label>
-                            <input type="text" id="exampleFormControlInput1" name="emails" placeholder="Email nhận thông báo gửi mail" class="form-control">
+                            <input type="text" id="exampleFormControlInput1" name="email" placeholder="Email nhận thông báo gửi mail" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Địa chỉ giao hàng</label>
