@@ -19,14 +19,14 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     function __construct()
     {
-        $users = User::all();
+        $user = User::all();
         $sp = products::all();
         $cate = category::all();
         $slide = slide::all();
         $new = news::all();
         $discount = discount::all();
         $order = orders::all();
-        view()-> share('users',$users);
+        view()-> share('user',$user);
         view()-> share('sp',$sp);
         view()-> share('cate',$cate);
         view()-> share('slide',$slide);

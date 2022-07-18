@@ -119,6 +119,14 @@ class pageController extends Controller
         return view('shop-page.delivery');
     }
     public function postOrder(Request $request){
+        $eror1 = [
+            'customer_name.required' => 'Bạn chưa nhập tên',
+            'phone.required' => 'Bạn chưa nhập sđt',
+        ];
+        $this->validate($request, [
+            "phone" => "required",
+            "customer_name" => "required",
+        ], $eror1);
         $cartInfo = Session::get("Cart")->products;
 
         $customer = new custormer;
